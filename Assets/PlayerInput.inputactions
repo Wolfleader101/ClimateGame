@@ -142,6 +142,17 @@
                 },
                 {
                     "name": "",
+                    "id": "bd6528a4-7349-4cd7-a8a7-0da4fc09d200",
+                    "path": "<XRController>{RightHand}/trackpad",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "8cad41a8-9213-4557-a0c3-f2897b523062",
                     "path": "<Keyboard>/e",
                     "interactions": "",

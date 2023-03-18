@@ -76,9 +76,14 @@ public class PlayerController : MonoBehaviour
 
     public void OnLook(InputAction.CallbackContext value)
     {
+        var sens = mouseSens;
+        if(value.control.name == "trackpad")
+        {
+            sens = 100;
+        }
         Vector2 direction = value.ReadValue<Vector2>();
-        _mouseX = direction.x * mouseSens * Time.deltaTime;
-        _mouseY = direction.y * mouseSens * Time.deltaTime;
+        _mouseX = direction.x * sens * Time.deltaTime;
+        _mouseY = direction.y * sens * Time.deltaTime;
     }
 
     public void OnJump(InputAction.CallbackContext value)
