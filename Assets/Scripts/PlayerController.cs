@@ -58,7 +58,8 @@ public class PlayerController : MonoBehaviour
         // fix rotation LMAO
         // ez fix
         // just rotate torso and head NOT whole game object
-        transform.localRotation = Quaternion.Euler(_xRotation, _yRotation, 0f);
+        transform.localRotation = Quaternion.Euler(0f, _yRotation, 0f);
+        cameraTransform.localRotation = Quaternion.Euler(_xRotation, 0f, 0f);
 
         Vector3 motion = transform.right * _xPos + transform.forward * _zPos;
         characterController.Move(motion * (character.MovementSpeed * Time.deltaTime));
@@ -106,5 +107,10 @@ public class PlayerController : MonoBehaviour
         bool shooting = context.started || context.performed;
 
         OnShootEvent?.Invoke(shooting, holdingShoot, _shootingAccuracy);
+    }
+
+    public void OnInteract(InputAction.CallbackContext context)
+    {
+        Debug.DrawRay(cameraTransform.position, cameraTransform.forward * 10.0f, Color.red, 0.5f);
     }
 }
