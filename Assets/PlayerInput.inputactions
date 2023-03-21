@@ -38,16 +38,7 @@
                     "id": "c59cb918-e385-4e77-8362-93982f8e264e",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Shoot",
-                    "type": "PassThrough",
-                    "id": "0794fa5e-1578-4cf6-86f2-8cf634290c8e",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
+                    "interactions": "Press(behavior=1)",
                     "initialStateCheck": false
                 }
             ],
@@ -192,17 +183,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "Interact",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "bb7820d7-2318-4772-89e7-0cd632483e64",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Shoot",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

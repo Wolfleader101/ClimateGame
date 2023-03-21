@@ -18,12 +18,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float gravityScale = -9.81f;
     [SerializeField] private BaseCharacter character;
 
-    // the shooting accuracy (of the player) is a value between 0 and 1.
-    // factors like moving, jumping, crouching, ADS will all improve said accuracy
-    // Weapon's also have their own max accuracy which is determined by the type of gun and its attachments
-    private float _shootingAccuracy = 0.75f;
-    public event Action<bool, bool, float> OnShootEvent;
-    
     private float _mouseX;
     private float _mouseY;
     private float _xRotation = 0f;
@@ -35,12 +29,16 @@ public class PlayerController : MonoBehaviour
 
     private Vector3 _velocity;
     
+    private Camera _camera;
+    
     private void Start()
     {
         if (characterController == null) characterController = GetComponent<CharacterController>();
 
         //lock cursor to mid
         Cursor.lockState = CursorLockMode.Locked;
+        
+        _camera = Camera.main;
     }
 
     // Update is called once per frame
@@ -58,7 +56,8 @@ public class PlayerController : MonoBehaviour
         // fix rotation LMAO
         // ez fix
         // just rotate torso and head NOT whole game object
-        transform.localRotation = Quaternion.Euler(_xRotation, _yRotation, 0f);
+        transform.localRotation = Quaternion.Euler(0f, _yRotation, 0f);
+        cameraTransform.localRotation = Quaternion.Euler(_xRotation, 0f, 0f);
 
         Vector3 motion = transform.right * _xPos + transform.forward * _zPos;
         characterController.Move(motion * (character.MovementSpeed * Time.deltaTime));
@@ -100,11 +99,21 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void OnShoot(InputAction.CallbackContext context)
+    public void OnInteract(InputAction.CallbackContext context)
     {
-        bool holdingShoot = context.interaction is HoldInteraction && context.performed;
-        bool shooting = context.started || context.performed;
 
-        OnShootEvent?.Invoke(shooting, holdingShoot, _shootingAccuracy);
+        if (!context.performed) return;
+        
+        var ray = _camera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+        if (Physics.Raycast(ray, out var hit))
+        {
+            // Debug.DrawRay(ray.origin, transform.forward * hit.distance, Color.red, 1.5f);
+            // Debug.Log($"Hit {hit.collider.gameObject.name}");
+
+            var interactable = hit.collider.gameObject.GetComponent<Interactable>();
+            if (!interactable) return;
+            
+            interactable.OnInteract();
+        }
     }
 }
