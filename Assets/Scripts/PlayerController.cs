@@ -18,12 +18,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float gravityScale = -9.81f;
     [SerializeField] private BaseCharacter character;
 
-    // the shooting accuracy (of the player) is a value between 0 and 1.
-    // factors like moving, jumping, crouching, ADS will all improve said accuracy
-    // Weapon's also have their own max accuracy which is determined by the type of gun and its attachments
-    private float _shootingAccuracy = 0.75f;
-    public event Action<bool, bool, float> OnShootEvent;
-    
     private float _mouseX;
     private float _mouseY;
     private float _xRotation = 0f;
@@ -103,14 +97,6 @@ public class PlayerController : MonoBehaviour
         {
             _velocity.y = Mathf.Sqrt(character.JumpHeight * -2f * gravityScale);
         }
-    }
-
-    public void OnShoot(InputAction.CallbackContext context)
-    {
-        bool holdingShoot = context.interaction is HoldInteraction && context.performed;
-        bool shooting = context.started || context.performed;
-
-        OnShootEvent?.Invoke(shooting, holdingShoot, _shootingAccuracy);
     }
 
     public void OnInteract(InputAction.CallbackContext context)
