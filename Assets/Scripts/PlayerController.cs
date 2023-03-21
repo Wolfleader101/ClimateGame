@@ -35,12 +35,16 @@ public class PlayerController : MonoBehaviour
 
     private Vector3 _velocity;
     
+    private Camera _camera;
+    
     private void Start()
     {
         if (characterController == null) characterController = GetComponent<CharacterController>();
 
         //lock cursor to mid
         Cursor.lockState = CursorLockMode.Locked;
+        
+        _camera = Camera.main;
     }
 
     // Update is called once per frame
@@ -111,6 +115,19 @@ public class PlayerController : MonoBehaviour
 
     public void OnInteract(InputAction.CallbackContext context)
     {
-        Debug.DrawRay(cameraTransform.position, cameraTransform.forward * 10.0f, Color.red, 0.5f);
+
+        if (!context.performed) return;
+        
+        var ray = _camera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+        if (Physics.Raycast(ray, out var hit))
+        {
+            // Debug.DrawRay(ray.origin, transform.forward * hit.distance, Color.red, 1.5f);
+            // Debug.Log($"Hit {hit.collider.gameObject.name}");
+
+            var interactable = hit.collider.gameObject.GetComponent<Interactable>();
+            if (!interactable) return;
+            
+            interactable.OnInteract();
+        }
     }
 }
