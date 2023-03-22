@@ -12,5 +12,11 @@ public class Interactable : MonoBehaviour
     {
         Debug.Log("On Interact");
         OnInteractEvent?.Invoke();
+
+        var outline = GetComponent<Outline>();
+            if(outline != null)
+            {
+                outline.OutlineColor = Color.red;
+            }
     }
 }
