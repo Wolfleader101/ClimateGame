@@ -5,7 +5,7 @@ using UnityEngine;
 public class DragObject : MonoBehaviour
 {
     [Range(0, 100)] public float maxDistance;
-    public LayerMask mask;
+    public LayerMask interactMask;
 
     [Space]
 
@@ -13,25 +13,20 @@ public class DragObject : MonoBehaviour
     public float force = 1.0f;
     public float damping = 1.0f;
 
+    [Space]
+
     [SerializeField] private Rigidbody grabbedBody;
     [SerializeField] private Transform grabbedJoint;
-
-    [Space]
-
-    private bool clicked;
-    [SerializeField] private bool held;
-    [SerializeField] private bool canDrag;
-
-    [Space]
-
     [SerializeField] private float grabDistance;
-
-    [Space]
+    
+    private bool clicked;
+    private bool held;
+    private bool canDrag;
     
     private Vector3 dragPosition;
 
-    [SerializeField] private Vector3 start;
-    [SerializeField] private Vector3 current;
+    private Vector3 start;
+    private Vector3 current;
 
     void Update()
     {
@@ -42,7 +37,7 @@ public class DragObject : MonoBehaviour
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-            if (Physics.Raycast(ray, out RaycastHit hit, maxDistance, mask))
+            if (Physics.Raycast(ray, out RaycastHit hit, maxDistance, interactMask))
             {
                 start = hit.point;
             

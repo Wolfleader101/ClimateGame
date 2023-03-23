@@ -13,7 +13,7 @@ public class RecyclableRubbish : MonoBehaviour
         if (other.CompareTag("RecycleBin") && other.GetComponent<Recyclebin>().recyclingType == rubbishType)
         {
             Destroy(gameObject);
-            //other.GetComponent<RecyclingBinScript>().IncrementScore(); <- Maybe func for helping clear fog
+            other.GetComponent<Recyclebin>().IncrementScore(); 
         }
     }
 }
