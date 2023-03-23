@@ -5,5 +5,11 @@ public class Recyclebin : MonoBehaviour
 {
 
     public string recyclingType;
-    //something to clear fog
+
+    public int score = 0;
+
+    public void IncrementScore()
+    {
+        score++;
+    }
 }
