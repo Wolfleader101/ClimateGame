@@ -10,21 +10,25 @@ public class RecyclableRubbish : MonoBehaviour
     public float force = 100.0f;
     public float damping = 30.0f;
 
-    [Range(0, 10)] [SerializeField] private float grabDistance = 10f;
+    [Range(0, 10)][SerializeField] private float grabDistance = 2.0f;
 
+    
     private Camera _camera;
-    private Rigidbody _grabbedBody;
-    private Transform _grabbedTransform;
+    private Rigidbody _rb;
+
+    private GameObject _joint;
     
     private Vector3 _currentPos;
     
     private bool _held;
+
     
     private void Start()
     {
         gameObject.GetComponent<Interactable>().OnInteractEvent += OnInteract;
 
         _camera = Camera.main;
+        _rb = GetComponent<Rigidbody>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -32,42 +36,36 @@ public class RecyclableRubbish : MonoBehaviour
         if (!other.CompareTag("RecycleBin") || !other.GetComponent<Recyclebin>()) return;
         
         Destroy(gameObject);
+        
         other.GetComponent<Recyclebin>().IncrementScore();
     }
     
     private void Update()
     {
-        _grabbedBody = !_held && _grabbedBody ? null : _grabbedBody;
-
-        var canDrag = _held && _grabbedBody;
-
        var dragPosition = _camera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, grabDistance));
 
-       _currentPos = _held && canDrag ? dragPosition : Vector3.zero;
+       _currentPos = _held ? dragPosition : Vector3.zero;
     }
     
     private void FixedUpdate()
     {
-        if (_grabbedTransform)
-            _grabbedTransform.position = _currentPos;
+        if (_joint)
+            _joint.transform.position = _currentPos;
     }
 
-    private void OnInteract(RaycastHit hit, GameObject interactingObj)
+    private void OnInteract(InteractableHandler handler)
     {
         _held = !_held;
-        if (!_held && _grabbedTransform.gameObject)
+        if (!_held && _joint)
         {
-            Debug.Log("DROPPED");
-            Destroy(_grabbedTransform.gameObject);
+            Destroy(_joint);
+            return;
         }
-        
-        _grabbedBody = hit.rigidbody;
-        grabDistance = hit.distance;
 
-        _grabbedTransform = CreateJoint(hit.point, _grabbedBody);
+        _joint = CreateJoint(transform.position, _rb);
     }
     
-    private Transform CreateJoint(Vector3 attachedPoint, Rigidbody rb)
+    private GameObject CreateJoint(Vector3 attachedPoint, Rigidbody rb)
     {
         var go = new GameObject("Attached Joint")
         {
@@ -76,6 +74,7 @@ public class RecyclableRubbish : MonoBehaviour
                 position = attachedPoint
             }
         };
+        go.transform.SetParent(gameObject.transform);
 
         var nrb = go.AddComponent<Rigidbody>();
         nrb.isKinematic = true;
@@ -92,7 +91,7 @@ public class RecyclableRubbish : MonoBehaviour
 
         joint.rotationDriveMode = RotationDriveMode.Slerp;
 
-        return go.transform;
+        return go;
     }
 
     private JointDrive CreateJointDrive()
