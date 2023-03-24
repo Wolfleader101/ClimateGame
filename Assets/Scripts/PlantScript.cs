@@ -2,17 +2,43 @@ using UnityEngine;
 
 public class PlantScript : MonoBehaviour
 {
-    [SerializeField, Range(0.0f, 1.0f)]
-    private float dirtAmount = 0.0f;
+    public static EventManager.OnValueChangeDelegate OnValueChange;
 
-    [SerializeField, Range(0.0f, 1.0f)]
-    private float waterAmount = 0.0f;
+    [SerializeField, Range(0, 100)]
+    private int dirtFillPercent = 0;
+
+    private float dirtFill = 0.0f;
+
+    private float waterValue = 0.0f;
 
     private Material material;
+
+    public float DirtFill
+    {
+        get { return dirtFill; }
+        set
+        {
+            if (dirtFill == value) return;
+            
+            dirtFill = value;
+            
+            if (OnValueChange != null)
+                OnValueChange(dirtFill);
+        }
+    }
 
     private void Start()
     {
         material = GetComponent<MeshRenderer>().sharedMaterial;
+
+        OnValueChange += HandleChange;
+    }
+
+    private void HandleChange(float val)
+    {
+        print("Value Changed!");
+
+        material.SetFloat("_Fill", DirtFill);
     }
 
     private void Grow()
@@ -20,13 +46,8 @@ public class PlantScript : MonoBehaviour
         
     }
 
-    public void Fill()
-    {
-        dirtAmount = 1.0f;
-    }
-
     private void Update()
     {
-
+        DirtFill = (float)dirtFillPercent * 0.01f;
     }
 }
