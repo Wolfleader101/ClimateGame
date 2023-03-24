@@ -107,13 +107,10 @@ public class PlayerController : MonoBehaviour
         var ray = _camera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
         if (Physics.Raycast(ray, out var hit))
         {
-            // Debug.DrawRay(ray.origin, transform.forward * hit.distance, Color.red, 1.5f);
-            // Debug.Log($"Hit {hit.collider.gameObject.name}");
-
             var interactable = hit.collider.gameObject.GetComponent<Interactable>();
             if (!interactable) return;
             
-            interactable.OnInteract();
+            interactable.OnInteract(hit, gameObject);
         }
     }
 }

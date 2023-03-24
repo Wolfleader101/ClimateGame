@@ -6,11 +6,10 @@ using UnityEngine;
 [RequireComponent(typeof(Collider))]
 public class Interactable : MonoBehaviour
 {
-    public event Action OnInteractEvent;
+    public event Action<RaycastHit, GameObject> OnInteractEvent;
     
-    public void OnInteract()
+    public void OnInteract(RaycastHit hit, GameObject interactingObj)
     {
-        Debug.Log("On Interact");
-        OnInteractEvent?.Invoke();
+        OnInteractEvent?.Invoke(hit, interactingObj);
     }
 }
