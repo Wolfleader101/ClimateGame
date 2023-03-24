@@ -9,10 +9,10 @@ public class Interactable : MonoBehaviour
     [SerializeField] private bool isHoldable = false;
 
     public bool Holdable => isHoldable;
-    public event Action<InteractableHandler, RaycastHit?> OnInteractEvent;
+    public event Action<InteractableHandler> OnInteractEvent;
     
-    public void OnInteract(InteractableHandler handler, RaycastHit? hit)
+    public void OnInteract(InteractableHandler handler)
     {
-        OnInteractEvent?.Invoke(handler, hit);
+        OnInteractEvent?.Invoke(handler);
     }
 }

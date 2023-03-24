@@ -19,7 +19,7 @@ public class InteractableHandler : MonoBehaviour
 
         if (_heldInteractable)
         {
-            _heldInteractable.OnInteract(this, null);
+            _heldInteractable.OnInteract(this);
             _heldInteractable = null;
 
             return;
@@ -31,9 +31,9 @@ public class InteractableHandler : MonoBehaviour
             var interactable = hit.collider.gameObject.GetComponent<Interactable>();
             if (!interactable) return;
 
-            interactable.OnInteract(this, hit);
-
             if (interactable.Holdable) _heldInteractable = interactable;
+            interactable.OnInteract(this);
+
         }
     }
 }

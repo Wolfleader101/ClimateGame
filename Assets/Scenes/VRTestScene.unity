@@ -956,6 +956,7 @@ GameObject:
   - component: {fileID: 1725982598}
   - component: {fileID: 1725982595}
   - component: {fileID: 1725982596}
+  - component: {fileID: 1725982599}
   - component: {fileID: 1725982597}
   m_Layer: 0
   m_Name: Player
@@ -1095,8 +1096,8 @@ MonoBehaviour:
     m_ActionName: Player/Look[/Mouse/delta]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1725982595}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+      - m_Target: {fileID: 1725982599}
+        m_TargetAssemblyTypeName: InteractableHandler, Assembly-CSharp
         m_MethodName: OnInteract
         m_Mode: 0
         m_Arguments:
@@ -1128,6 +1129,18 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1725982599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1725982592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b78a2da93edb4bb085f86d455c4d73d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1728657555
 GameObject:
   m_ObjectHideFlags: 0
@@ -1781,8 +1794,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7cc3b2d4562bc5479b292489ff70abe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 200
-  damping: 1
+  force: 100
+  damping: 30
   grabDistance: 10
 --- !u!114 &2061896987028524504
 MonoBehaviour:
