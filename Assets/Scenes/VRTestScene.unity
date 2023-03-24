@@ -1633,6 +1633,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0771e30d465ab5748ab49162b6db0f7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isHoldable: 0
 --- !u!114 &2100615013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1780,8 +1781,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7cc3b2d4562bc5479b292489ff70abe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 100
-  damping: 30
+  force: 200
+  damping: 1
   grabDistance: 10
 --- !u!114 &2061896987028524504
 MonoBehaviour:
@@ -1795,3 +1796,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0771e30d465ab5748ab49162b6db0f7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isHoldable: 1

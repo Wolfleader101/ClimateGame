@@ -52,7 +52,7 @@ public class RecyclableRubbish : MonoBehaviour
             _grabbedTransform.position = _currentPos;
     }
 
-    private void OnInteract(RaycastHit hit, GameObject interactingObj)
+    private void OnInteract(InteractableHandler interactingObj, RaycastHit? hit)
     {
         _held = !_held;
         if (!_held && _grabbedTransform.gameObject)
@@ -60,11 +60,14 @@ public class RecyclableRubbish : MonoBehaviour
             Debug.Log("DROPPED");
             Destroy(_grabbedTransform.gameObject);
         }
-        
-        _grabbedBody = hit.rigidbody;
-        grabDistance = hit.distance;
 
-        _grabbedTransform = CreateJoint(hit.point, _grabbedBody);
+
+        if (hit == null) return;
+        
+        _grabbedBody = hit.Value.rigidbody;
+        grabDistance = hit.Value.distance;
+
+        _grabbedTransform = CreateJoint(hit.Value.point, _grabbedBody);
     }
     
     private Transform CreateJoint(Vector3 attachedPoint, Rigidbody rb)
