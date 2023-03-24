@@ -4,12 +4,12 @@ using UnityEngine;
 public class Recyclebin : MonoBehaviour
 {
 
-    public string recyclingType;
+    //public string recyclingType;
 
-    public int score = 0;
+    private int _score = 0;
 
     public void IncrementScore()
     {
-        score++;
+        _score++;
     }
 }
