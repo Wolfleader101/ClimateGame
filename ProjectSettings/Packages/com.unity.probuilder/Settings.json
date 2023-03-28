@@ -30,6 +30,7 @@
             },
             {
                 "type": "System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+<<<<<<< HEAD
                 "key": "experimental.enabled",
                 "value": "{\"m_Value\":false}"
             },
@@ -40,6 +41,8 @@
             },
             {
                 "type": "System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+=======
+>>>>>>> dev
                 "key": "UnityEngine.ProBuilder.ProBuilderEditor-isUtilityWindow",
                 "value": "{\"m_Value\":false}"
             },
@@ -51,7 +54,11 @@
             {
                 "type": "System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
                 "key": "editor.backFaceSelectEnabled",
+<<<<<<< HEAD
                 "value": "{\"m_Value\":true}"
+=======
+                "value": "{\"m_Value\":false}"
+>>>>>>> dev
             },
             {
                 "type": "System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
@@ -60,6 +67,14 @@
             },
             {
                 "type": "System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+<<<<<<< HEAD
+=======
+                "key": "experimental.enabled",
+                "value": "{\"m_Value\":true}"
+            },
+            {
+                "type": "System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+>>>>>>> dev
                 "key": "ShapeComponent.ResetSettings",
                 "value": "{\"m_Value\":false}"
             },
@@ -85,16 +100,34 @@
             },
             {
                 "type": "System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+<<<<<<< HEAD
+=======
+                "key": "lightmapping.autoUnwrapLightmapUV",
+                "value": "{\"m_Value\":true}"
+            },
+            {
+                "type": "System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+>>>>>>> dev
                 "key": "editor.autoRecalculateCollisions",
                 "value": "{\"m_Value\":false}"
             },
             {
                 "type": "System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+<<<<<<< HEAD
                 "key": "UVEditor.showPreviewMaterial",
+=======
+                "key": "SelectEdgeLoop.selectIterative",
+                "value": "{\"m_Value\":false}"
+            },
+            {
+                "type": "System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+                "key": "GrowSelection.useAngle",
+>>>>>>> dev
                 "value": "{\"m_Value\":true}"
             },
             {
                 "type": "System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+<<<<<<< HEAD
                 "key": "SelectEdgeRing.selectIterative",
                 "value": "{\"m_Value\":false}"
             },
@@ -106,10 +139,19 @@
             {
                 "type": "System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
                 "key": "export.exportAsGroup",
+=======
+                "key": "GrowSelection.iterativeGrow",
+                "value": "{\"m_Value\":false}"
+            },
+            {
+                "type": "System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+                "key": "SelectEdgeRing.selectIterative",
+>>>>>>> dev
                 "value": "{\"m_Value\":true}"
             },
             {
                 "type": "System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+<<<<<<< HEAD
                 "key": "export.objQuads",
                 "value": "{\"m_Value\":true}"
             },
@@ -126,22 +168,57 @@
             {
                 "type": "System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
                 "key": "export.objApplyTransform",
+=======
+                "key": "smoothing.showPreview",
+>>>>>>> dev
                 "value": "{\"m_Value\":false}"
             },
             {
                 "type": "System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+<<<<<<< HEAD
                 "key": "export.objExportVertexColors",
+=======
+                "key": "smoothing.showNormals",
+                "value": "{\"m_Value\":true}"
+            },
+            {
+                "type": "System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+                "key": "smoothing.showSettings",
+>>>>>>> dev
                 "value": "{\"m_Value\":false}"
             },
             {
                 "type": "System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+<<<<<<< HEAD
                 "key": "export.objTextureOffsetScale",
+=======
+                "key": "smoothing.showHelp",
+                "value": "{\"m_Value\":false}"
+            },
+            {
+                "type": "System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+                "key": "FillHole.selectEntirePath",
+                "value": "{\"m_Value\":true}"
+            },
+            {
+                "type": "System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+                "key": "editor.stripProBuilderScriptsOnBuild",
+                "value": "{\"m_Value\":true}"
+            },
+            {
+                "type": "System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+                "key": "experimental.meshesAreAssets",
+>>>>>>> dev
                 "value": "{\"m_Value\":false}"
             },
             {
                 "type": "UnityEngine.ProBuilder.RectSelectMode, Unity.ProBuilder, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
                 "key": "editor.dragSelectRectMode",
+<<<<<<< HEAD
                 "value": "{\"m_Value\":0}"
+=======
+                "value": "{\"m_Value\":1}"
+>>>>>>> dev
             },
             {
                 "type": "UnityEngine.ProBuilder.SelectionModifierBehavior, Unity.ProBuilder, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
@@ -156,12 +233,20 @@
             {
                 "type": "UnityEngine.ProBuilder.SelectMode, Unity.ProBuilder, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
                 "key": "editor.lastMeshSelectMode",
+<<<<<<< HEAD
                 "value": "{\"m_Value\":2}"
+=======
+                "value": "{\"m_Value\":8}"
+>>>>>>> dev
             },
             {
                 "type": "System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
                 "key": "ShapeBuilder.ActiveShapeIndex",
+<<<<<<< HEAD
                 "value": "{\"m_Value\":2}"
+=======
+                "value": "{\"m_Value\":3}"
+>>>>>>> dev
             },
             {
                 "type": "System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
@@ -169,6 +254,14 @@
                 "value": "{\"m_Value\":1}"
             },
             {
+<<<<<<< HEAD
+=======
+                "type": "System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+                "key": "SubdivideEdges.subdivisions",
+                "value": "{\"m_Value\":1}"
+            },
+            {
+>>>>>>> dev
                 "type": "UnityEngine.ProBuilder.PivotLocation, Unity.ProBuilder, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
                 "key": "mesh.newShapePivotLocation",
                 "value": "{\"m_Value\":1}"
@@ -181,7 +274,16 @@
             {
                 "type": "UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
                 "key": "ShapeBuilder.LastSize",
+<<<<<<< HEAD
                 "value": "{\"m_Value\":{\"x\":2.240000009536743,\"y\":2.4000000953674318,\"z\":0.09000039845705033}}"
+=======
+                "value": "{\"m_Value\":{\"x\":1.0,\"y\":1.0,\"z\":1.0}}"
+            },
+            {
+                "type": "UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+                "key": "MoveElements.s_Translation",
+                "value": "{\"m_Value\":{\"x\":0.0,\"y\":0.05000000074505806,\"z\":0.0}}"
+>>>>>>> dev
             },
             {
                 "type": "UnityEngine.Quaternion, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
@@ -215,6 +317,7 @@
             },
             {
                 "type": "UnityEngine.ProBuilder.Shapes.Shape, Unity.ProBuilder, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+<<<<<<< HEAD
                 "key": "ShapeBuilder.Plane",
                 "value": "{}"
             },
@@ -226,6 +329,9 @@
             {
                 "type": "UnityEngine.ProBuilder.Shapes.Shape, Unity.ProBuilder, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
                 "key": "ShapeBuilder.Arch",
+=======
+                "key": "ShapeBuilder.Cylinder",
+>>>>>>> dev
                 "value": "{}"
             },
             {
@@ -235,13 +341,27 @@
             },
             {
                 "type": "UnityEngine.ProBuilder.Shapes.Shape, Unity.ProBuilder, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+<<<<<<< HEAD
                 "key": "ShapeBuilder.Sprite",
+=======
+                "key": "ShapeBuilder.Cone",
+>>>>>>> dev
                 "value": "{}"
             },
             {
                 "type": "System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+<<<<<<< HEAD
                 "key": "uv.uvEditorGridSnapIncrement",
                 "value": "{\"m_Value\":0.125}"
+=======
+                "key": "BevelEdges.size",
+                "value": "{\"m_Value\":0.029999999329447748}"
+            },
+            {
+                "type": "System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+                "key": "GrowSelection.angleValue",
+                "value": "{\"m_Value\":15.0}"
+>>>>>>> dev
             },
             {
                 "type": "System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
@@ -250,13 +370,34 @@
             },
             {
                 "type": "System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+<<<<<<< HEAD
                 "key": "BevelEdges.size",
                 "value": "{\"m_Value\":0.20000000298023225}"
+=======
+                "key": "smoothing.NormalsSize",
+                "value": "{\"m_Value\":0.7438000440597534}"
+            },
+            {
+                "type": "System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+                "key": "uv.uvEditorGridSnapIncrement",
+                "value": "{\"m_Value\":0.125}"
+            },
+            {
+                "type": "UnityEditor.ProBuilder.Actions.OffsetElements+CoordinateSpace, Unity.ProBuilder.Editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+                "key": "MoveElements.s_CoordinateSpace",
+                "value": "{\"m_Value\":0}"
+            },
+            {
+                "type": "UnityEditor.ProBuilder.Actions.MirrorObjects+MirrorSettings, Unity.ProBuilder.Editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+                "key": "MirrorObjects.mirrorAxes",
+                "value": "{\"m_Value\":8}"
+>>>>>>> dev
             },
             {
                 "type": "UnityEngine.ProBuilder.ExtrudeMethod, Unity.ProBuilder, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
                 "key": "editor.extrudeMethod",
                 "value": "{\"m_Value\":2}"
+<<<<<<< HEAD
             },
             {
                 "type": "UnityEditor.ProBuilder.Actions.DetachFaces+DetachSetting, Unity.ProBuilder.Editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
@@ -272,6 +413,8 @@
                 "type": "UnityEditor.ProBuilder.Actions.Export+ExportFormat, Unity.ProBuilder.Editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
                 "key": "export.format",
                 "value": "{\"m_Value\":0}"
+=======
+>>>>>>> dev
             }
         ]
     }

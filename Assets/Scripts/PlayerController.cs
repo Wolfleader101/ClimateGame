@@ -98,22 +98,4 @@ public class PlayerController : MonoBehaviour
             _velocity.y = Mathf.Sqrt(character.JumpHeight * -2f * gravityScale);
         }
     }
-
-    public void OnInteract(InputAction.CallbackContext context)
-    {
-
-        if (!context.performed) return;
-        
-        var ray = _camera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
-        if (Physics.Raycast(ray, out var hit))
-        {
-            // Debug.DrawRay(ray.origin, transform.forward * hit.distance, Color.red, 1.5f);
-            // Debug.Log($"Hit {hit.collider.gameObject.name}");
-
-            var interactable = hit.collider.gameObject.GetComponent<Interactable>();
-            if (!interactable) return;
-            
-            interactable.OnInteract();
-        }
-    }
 }
