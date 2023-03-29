@@ -87,12 +87,6 @@ public class PlayerController : MonoBehaviour
 
     public void OnJump(InputAction.CallbackContext value)
     {
-        if (character.CanDoubleJump && value.performed && value.interaction is MultiTapInteraction)
-        {
-            _velocity.y = Mathf.Sqrt(character.JumpHeight * -2f * gravityScale);
-            Debug.Log("Double Jump");
-        }
-
         if (characterController.isGrounded && value.started)
         {
             _velocity.y = Mathf.Sqrt(character.JumpHeight * -2f * gravityScale);
