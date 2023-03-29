@@ -3,43 +3,49 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 
-public class Aircon : MonoBehaviour
+public class aircon : MonoBehaviour
 {
     
-    public TextMeshProUGUI text;
+    [SerializeField] private TextMeshProUGUI text;
 
-    public int value;
-    private int oldValue;
-    private static int targetvalue = 24;
+    [SerializeField] private int _value;
+    
+    private int _oldValue;
+    private static readonly int _targetValue = 24;
 
-    private static readonly String appendix = "°C";
+    private static readonly string _appendix = "°C";
 
-    private bool targetHit = false;
+    private bool _targetHit = false;
     
     // Start is called before the first frame update
     void Start()
     {
         text.color = Color.red;
-        oldValue = value;
-        text.text = Convert.ToString(value) + " " + appendix;
+        _oldValue = _value;
+        text.text = Convert.ToString(_value) + " " + _appendix;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (_targetHit || _value == _oldValue) return;
         
-        if (!targetHit && value != oldValue)
-        {
-            text.text = Convert.ToString(value) + " " + appendix;
-            oldValue = value;
+        text.text = Convert.ToString(_value) + " " + _appendix;
+        _oldValue = _value;
 
-            if (value == targetvalue)
-            {
-                text.color = Color.green;
-                targetHit = true;
-            }
-        }
         
+        if (_value != _targetValue) return;
+        
+        text.color = Color.green;
+        _targetHit = true;
+
     }
+
+    public void ChangeValue(int x)
+    {
+        _value += x;
+    }
+    
 }

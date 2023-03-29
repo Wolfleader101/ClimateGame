@@ -3,11 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 
-public class AirconButton : MonoBehaviour
+public class airconButton : MonoBehaviour
 {
-    public bool ButtonUp;
-    public Aircon AirconScriptRef;
+    [SerializeField] private bool buttonUp;
+    [SerializeField] private aircon airconScriptRef;
 
 
     void Start()
@@ -17,7 +18,7 @@ public class AirconButton : MonoBehaviour
 
     void ChangeScreenValue(InteractableHandler handler)
     {
-        AirconScriptRef.value += ChangeValues[Convert.ToUInt16(ButtonUp)];
+        airconScriptRef.ChangeValue(ChangeValues[Convert.ToUInt16(buttonUp)]);
     }
     
 
