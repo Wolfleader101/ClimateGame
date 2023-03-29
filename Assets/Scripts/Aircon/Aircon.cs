@@ -14,11 +14,13 @@ public class Aircon : MonoBehaviour
     private static int targetvalue = 24;
 
     private static readonly String appendix = "°C";
+
+    private bool targetHit = false;
     
     // Start is called before the first frame update
     void Start()
     {
-        
+        text.color = Color.red;
         oldValue = value;
         text.text = Convert.ToString(value) + " " + appendix;
     }
@@ -26,11 +28,18 @@ public class Aircon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (value != oldValue)
+        
+        if (!targetHit && value != oldValue)
         {
             text.text = Convert.ToString(value) + " " + appendix;
             oldValue = value;
-            
+
+            if (value == targetvalue)
+            {
+                text.color = Color.green;
+                targetHit = true;
+            }
         }
+        
     }
 }

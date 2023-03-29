@@ -191,6 +191,7 @@ GameObject:
   - component: {fileID: 121328851}
   - component: {fileID: 121328850}
   - component: {fileID: 121328849}
+  - component: {fileID: 121328852}
   m_Layer: 0
   m_Name: Screen
   m_TagString: Untagged
@@ -277,6 +278,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 121328847}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &121328852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 121328847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c08cdc4fc3b73142a20244176870894, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 1275254409}
+  value: 20
 --- !u!1 &138776416
 GameObject:
   m_ObjectHideFlags: 0
@@ -1166,7 +1181,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "26\xB0C"
+  m_text: "0\xB0C"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
@@ -1332,6 +1347,7 @@ GameObject:
   - component: {fileID: 1549310082}
   - component: {fileID: 1549310081}
   - component: {fileID: 1549310084}
+  - component: {fileID: 1549310085}
   m_Layer: 6
   m_Name: Button Up
   m_TagString: Untagged
@@ -1430,6 +1446,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isHoldable: 0
+--- !u!114 &1549310085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1549310079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6832900c91da8634e9a58b39b97a9b51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ButtonUp: 1
+  AirconScriptRef: {fileID: 121328852}
 --- !u!1 &1684951658 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4283425761326543017, guid: 1f4d373a613d0466fbd8849470265852,
@@ -1698,6 +1728,7 @@ GameObject:
   - component: {fileID: 1862317135}
   - component: {fileID: 1862317134}
   - component: {fileID: 1862317137}
+  - component: {fileID: 1862317138}
   m_Layer: 6
   m_Name: Button Down
   m_TagString: Untagged
@@ -1796,6 +1827,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isHoldable: 0
+--- !u!114 &1862317138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1862317132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6832900c91da8634e9a58b39b97a9b51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ButtonUp: 0
+  AirconScriptRef: {fileID: 121328852}
 --- !u!1001 &1934505122
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -10,16 +10,16 @@ public class AirconButton : MonoBehaviour
     public Aircon AirconScriptRef;
 
 
-    void start()
+    void Start()
     {
-        gameObject.GetComponent<Interactable>().OnInteract += ChangeScreenValue;
+        gameObject.GetComponent<Interactable>().OnInteractEvent += ChangeScreenValue;
     }
 
-    void ChangeScreenValue()
+    void ChangeScreenValue(InteractableHandler handler)
     {
         AirconScriptRef.value += ChangeValues[Convert.ToUInt16(ButtonUp)];
     }
     
 
-    private static int[] ChangeValues = { 1, -1 };
+    private static int[] ChangeValues = { -1, 1 };
 }
