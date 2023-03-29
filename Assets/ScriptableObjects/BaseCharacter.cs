@@ -30,9 +30,6 @@ namespace ScriptableObjects.Characters
         private float jumpHeight = 2f;
         
         [SerializeField, BoxGroup("Movement/1")]
-        private bool canDoubleJump = true;
-        
-        [SerializeField, BoxGroup("Movement/1")]
         private float gravityScaleMultiplier = 1.5f;
         
         public float StartingHealth => startingHealth;
@@ -42,6 +39,5 @@ namespace ScriptableObjects.Characters
         public float MovementSpeed => movementSpeed;
         public float JumpHeight => jumpHeight;
         public float GravityScaleMultiplier => gravityScaleMultiplier;
-        public bool CanDoubleJump => canDoubleJump;
     }
 }
