@@ -1,6 +1,10 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+<<<<<<<< HEAD:Assets/PlantsPackage/FBX/Plants/Materials/04 - Default.mat
 --- !u!114 &-6277333950498001942
+========
+--- !u!114 &-5408505443410207454
+>>>>>>>> origin/dev:Assets/Material/New Material 1.mat
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,7 +24,11 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<<< HEAD:Assets/PlantsPackage/FBX/Plants/Materials/04 - Default.mat
   m_Name: 04 - Default
+========
+  m_Name: New Material 1
+>>>>>>>> origin/dev:Assets/Material/New Material 1.mat
   m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -119,8 +127,13 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
+<<<<<<<< HEAD:Assets/PlantsPackage/FBX/Plants/Materials/04 - Default.mat
     - _BaseColor: {r: 0.8745099, g: 0.04705883, b: 0.7490196, a: 1}
     - _Color: {r: 0.8745099, g: 0.0470588, b: 0.7490196, a: 1}
+========
+    - _BaseColor: {r: 0.027100397, g: 0.07876046, b: 0.1981132, a: 1}
+    - _Color: {r: 0.0271004, g: 0.07876044, b: 0.19811317, a: 1}
+>>>>>>>> origin/dev:Assets/Material/New Material 1.mat
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []

@@ -1,5 +1,10 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scenes/Plant Scene.unity.meta
 guid: 0fd035cb1a558834d8ad900c432d9374
+========
+guid: 750a9c92ba26180448f1aac0a14c43f5
+folderAsset: yes
+>>>>>>>> origin/dev:Assets/Material/Tutorial.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

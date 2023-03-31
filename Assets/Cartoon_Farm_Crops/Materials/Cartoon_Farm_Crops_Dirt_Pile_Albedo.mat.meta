@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Cartoon_Farm_Crops/Materials/Cartoon_Farm_Crops_Dirt_Pile_Albedo.mat.meta
 guid: caa9989c78c0b904993f749196f4cd05
+========
+guid: 2c29b7a9766d39c49bf2d53dfc4fa99d
+>>>>>>>> origin/dev:Assets/Material/New Material 1.mat.meta
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 2100000
