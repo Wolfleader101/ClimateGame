@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Liquid
-  m_Shader: {fileID: -6465566751694194690, guid: 50c62d66ac13b2343b3f2e8a39f5c446,
+  m_Shader: {fileID: -6465566751694194690, guid: cda553cfe695f0a4f87295c032ab152f,
     type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -98,7 +98,7 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _EnvironmentReflections: 1
-    - _Fill: -0.22
+    - _Fill: 0.96
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
@@ -113,16 +113,21 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Surface: 0
+    - _WobbleX: 0
+    - _WobbleZ: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _FillAmount: {r: 1, g: 1, b: 1, a: 0}
     - _Fill_Color: {r: 0.11792451, g: 0.6072508, b: 1, a: 0}
+    - _Plane_Normal: {r: 0, g: -0.09, b: 0, a: 0}
+    - _Plane_Position: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _Surface_Color: {r: 0.22877358, g: 0.6256799, b: 0.9150943, a: 0}
-    - _Wobble: {r: 6.975657e-10, g: 0, b: 7.556943e-10, a: 0}
+    - _Wobble: {r: -0.066070884, g: 0, b: -5.5079358e-11, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &2854432265297852508
 MonoBehaviour:
