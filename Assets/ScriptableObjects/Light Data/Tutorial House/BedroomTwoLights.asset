@@ -25,20 +25,11 @@ MonoBehaviour:
     SerializationNodes:
     - Name: lightModels
       Entry: 7
-      Data: 0|System.Collections.Generic.Dictionary`2[[UnityEngine.GameObject, UnityEngine.CoreModule,
-        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null],[UnityEngine.Light,
-        UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]][],
-        mscorlib
-    - Name: 
-      Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 7
-      Data: 1|System.Collections.Generic.Dictionary`2[[UnityEngine.GameObject, UnityEngine.CoreModule],[UnityEngine.Light,
+      Data: 0|System.Collections.Generic.Dictionary`2[[UnityEngine.GameObject, UnityEngine.CoreModule],[UnityEngine.Light,
         UnityEngine.CoreModule]], mscorlib
     - Name: comparer
       Entry: 7
-      Data: 2|System.Collections.Generic.ObjectEqualityComparer`1[[UnityEngine.GameObject,
+      Data: 1|System.Collections.Generic.ObjectEqualityComparer`1[[UnityEngine.GameObject,
         UnityEngine.CoreModule]], mscorlib
     - Name: 
       Entry: 8
@@ -55,12 +46,6 @@ MonoBehaviour:
     - Name: $v
       Entry: 10
       Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
     - Name: 
       Entry: 8
       Data: 

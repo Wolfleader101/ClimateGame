@@ -1556,7 +1556,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dictionaryData: {fileID: 11400000, guid: f7159fcfccc6afd4781c6d386173e095, type: 2}
-  lightOnOrOff: 1
+  lightOnOrOff: 0
 --- !u!1 &1045848415
 GameObject:
   m_ObjectHideFlags: 0
@@ -5184,7 +5184,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dictionaryData: {fileID: 11400000, guid: 45bb0a9080b5ccc4a860606ed0b24499, type: 2}
-  lightOnOrOff: 1
+  lightOnOrOff: 0
 --- !u!4 &2926756881267228540
 Transform:
   m_ObjectHideFlags: 0
