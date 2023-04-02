@@ -1,18 +1,22 @@
+using Sirenix.OdinInspector;
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-namespace AYellowpaper.SerializedCollections
+public class LightSwitch : MonoBehaviour
 {
-    public class LightSwitch : MonoBehaviour
-    {
-        [SerializedDictionary("Light Model", "Point Light")]
-        public SerializedDictionary<GameObject, Light> lightModels;
-        private GameObject switchObject;
+    //PUBLIC VARIABLES
+    public DictionaryData dictionaryData;
+    public bool lightOnOrOff = true; //A boolean to turn lights on or off
 
-        public void Awake()
-        {
-            switchObject = this.gameObject;
-        }
+    //PRIVATE VARIABLES
+    private GameObject switchObject;
+
+    private const float maxLightIntensity = 0.3f;
+
+    public void Awake()
+    {
+        switchObject = this.gameObject;
     }
 }
