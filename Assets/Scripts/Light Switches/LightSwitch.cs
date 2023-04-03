@@ -18,7 +18,6 @@ public class LightSwitch : MonoBehaviour
     private const float maximumRayLength = 0.5f; //The maximum length of the ray
 
     private Color emissiveColour = new Color(0.654f, 0.749f, 0.450f); //The emissive colour
-    private Color outlineColour = Color.yellow;
 
     private bool xrModeOn; //A boolean to check if the game is using VR or not
 
@@ -26,7 +25,7 @@ public class LightSwitch : MonoBehaviour
 
     public void Awake()
     {
-        if(!gameObject.GetComponent<Outline>())
+        if (!gameObject.GetComponent<Outline>())
         {
             gameObject.AddComponent<Outline>();
         }
@@ -64,13 +63,19 @@ public class LightSwitch : MonoBehaviour
 
     public void Update()
     {
-        if (xrModeOn) //Checks to see if VR mode is on
+        switch (xrModeOn)
         {
+            case true:
+                
 
-        }
-        else
-        {
-            RayToSwitch(Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0)));
+                break;
+            case false:
+                if (RayToSwitch(Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0))))
+                {
+                    ChangeLightState();
+                }
+
+                break;
         }
     }
 
@@ -96,5 +101,34 @@ public class LightSwitch : MonoBehaviour
             gameObject.GetComponent<Outline>().enabled = false;
 
         return false;
+    }
+
+    private void ChangeLightState() //A function to swap the state of the light depending on the state of the switch
+    {
+        if(Input.GetKeyDown(KeyCode.Mouse0) && lightOnOrOff == false)
+        {
+            foreach (KeyValuePair<GameObject, Light> item in lightData.lightModels) //Loops through all elements within the data dictionary
+            {
+                item.Key.GetComponent<Renderer>().material.EnableKeyword("_EMISSION"); //Turns on the emission
+
+                item.Key.GetComponent<Renderer>().material.SetColor("_EmissiveColor", emissiveColour * maxEmissiveIntensity); //Sets the colour and intensity
+
+                item.Value.intensity = maxLightIntensity;
+            }
+
+            lightOnOrOff = true;
+        }
+        else
+            if (Input.GetKeyDown(KeyCode.Mouse0) && lightOnOrOff == true)
+            {
+                foreach (KeyValuePair<GameObject, Light> item in lightData.lightModels) //Loops through all elements within the data dictionary
+                {
+                    item.Key.GetComponent<Renderer>().material.DisableKeyword("_EMISSION"); //Turns off the emission
+
+                    item.Value.intensity = 0.0f;
+                }
+
+                lightOnOrOff = false;
+            }
     }
 }
