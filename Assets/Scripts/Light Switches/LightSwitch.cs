@@ -4,7 +4,7 @@ using UnityEngine;
 [RequireComponent(typeof(Outline), typeof(Interactable))]
 public class LightSwitch : MonoBehaviour
 {
-    [SerializeField] private bool lightOnOrOff = true; //A boolean to turn lights on or off
+    [SerializeField] private bool lightOn = true; //A boolean to turn lights on or off
 
     [SerializeField] private List<Light> lights;
 
@@ -21,15 +21,12 @@ public class LightSwitch : MonoBehaviour
     {
         _outline = gameObject.GetComponent<Outline>();
         gameObject.GetComponent<Interactable>().OnInteractEvent += OnInteract;
-    }
-
-    public void Awake()
-    {
-        if (lightOnOrOff == false)
+            
+        if (lightOn == false)
         {
             foreach (var l in lights)
             {
-                l.GetComponent<Renderer>().material.DisableKeyword("_EMISSION"); //Turns off the emission
+                l.GetComponentInParent<Renderer>().material.DisableKeyword("_EMISSION"); //Turns off the emission
                 
                 l.intensity = 0.0f;
             }
@@ -39,7 +36,7 @@ public class LightSwitch : MonoBehaviour
             foreach (var l in lights)
             {
                 
-                var mat = l.GetComponent<Renderer>().material;
+                var mat = l.GetComponentInParent<Renderer>().material;
 
                 mat.EnableKeyword("_EMISSION"); //Turns on the emission
                 mat.SetColor("_EmissiveColor", _emissiveColour * MaxEmissiveIntensity); //Sets the colour and intensity
@@ -57,23 +54,23 @@ public class LightSwitch : MonoBehaviour
 
     private void ChangeLightState()
     {
-        if (lightOnOrOff)
+        if (lightOn)
         {
             foreach (var l in lights)
             {
-                l.GetComponent<Renderer>().material.DisableKeyword("_EMISSION"); //Turns off the emission
+                l.GetComponentInParent<Renderer>().material.DisableKeyword("_EMISSION"); //Turns off the emission
 
                 l.intensity = 0.0f;
             }
 
-            _outline.enabled = false;
-            lightOnOrOff = false;
+            lightOn = false;
+            _outline.enabled = lightOn;
         }
         else
         {
             foreach (var l in lights)
             {
-                var mat = l.GetComponent<Renderer>().material;
+                var mat = l.GetComponentInParent<Renderer>().material;
 
                 mat.EnableKeyword("_EMISSION"); //Turns on the emission
                 mat.SetColor("_EmissiveColor", _emissiveColour * MaxEmissiveIntensity); //Sets the colour and intensity
@@ -81,8 +78,8 @@ public class LightSwitch : MonoBehaviour
                 l.intensity = MaxLightIntensity;
             }
 
-            lightOnOrOff = true;
-            _outline.enabled = true;
+            lightOn = true;
+            _outline.enabled = lightOn;
         }
     }
 }
