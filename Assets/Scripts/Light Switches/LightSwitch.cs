@@ -26,6 +26,11 @@ public class LightSwitch : MonoBehaviour
 
     public void Awake()
     {
+        if(!gameObject.GetComponent<Outline>())
+        {
+            gameObject.AddComponent<Outline>();
+        }
+
         if (lightOnOrOff == false)
         {
             foreach (KeyValuePair<GameObject, Light> item in lightData.lightModels) //Loops through all elements within the data dictionary
