@@ -691,7 +691,6 @@ GameObject:
   - component: {fileID: 638549184}
   - component: {fileID: 638549186}
   - component: {fileID: 638549185}
-  - component: {fileID: 638549187}
   m_Layer: 0
   m_Name: lightSwitch2_MESH
   m_TagString: LightSwitch
@@ -807,21 +806,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89c76394a8bd3b74cb8fd6231698eae1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lightData: {fileID: 11400000, guid: 420f1f638b33cb4429b3517f7a33da2c, type: 2}
   lightOnOrOff: 1
---- !u!114 &638549187
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 638549180}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0771e30d465ab5748ab49162b6db0f7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isHoldable: 0
+  _lights:
+  - {fileID: 8782937313556947924}
+  _lightMeshes:
+  - {fileID: 4059894884321092061}
 --- !u!1 &651302363
 GameObject:
   m_ObjectHideFlags: 0
@@ -1972,7 +1961,6 @@ GameObject:
   - component: {fileID: 1393834713}
   - component: {fileID: 1393834715}
   - component: {fileID: 1393834714}
-  - component: {fileID: 1393834716}
   m_Layer: 0
   m_Name: lightSwitch3_MESH
   m_TagString: LightSwitch
@@ -2088,21 +2076,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89c76394a8bd3b74cb8fd6231698eae1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lightData: {fileID: 11400000, guid: 08dfd5d502af4fd41b700612fa8a2c59, type: 2}
   lightOnOrOff: 1
---- !u!114 &1393834716
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1393834709}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0771e30d465ab5748ab49162b6db0f7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isHoldable: 0
+  _lights:
+  - {fileID: 5135479223301044147}
+  _lightMeshes:
+  - {fileID: 499905288094512570}
 --- !u!64 &1431752810
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3470,7 +3448,6 @@ GameObject:
   - component: {fileID: 2126627447}
   - component: {fileID: 2126627449}
   - component: {fileID: 2126627448}
-  - component: {fileID: 2126627450}
   m_Layer: 0
   m_Name: lightSwitch4_MESH
   m_TagString: LightSwitch
@@ -3586,21 +3563,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89c76394a8bd3b74cb8fd6231698eae1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lightData: {fileID: 11400000, guid: f7159fcfccc6afd4781c6d386173e095, type: 2}
   lightOnOrOff: 1
---- !u!114 &2126627450
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2126627443}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0771e30d465ab5748ab49162b6db0f7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isHoldable: 0
+  _lights:
+  - {fileID: 6789045955907230572}
+  _lightMeshes:
+  - {fileID: 2270780971816098149}
 --- !u!1 &2134083865
 GameObject:
   m_ObjectHideFlags: 0
@@ -4438,7 +4405,6 @@ GameObject:
   - component: {fileID: 8113228088907671795}
   - component: {fileID: 8113228088907671797}
   - component: {fileID: 8113228088907671796}
-  - component: {fileID: 8113228088907671798}
   m_Layer: 0
   m_Name: lightSwitch1_MESH
   m_TagString: LightSwitch
@@ -9069,21 +9035,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89c76394a8bd3b74cb8fd6231698eae1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lightData: {fileID: 11400000, guid: 45bb0a9080b5ccc4a860606ed0b24499, type: 2}
   lightOnOrOff: 1
---- !u!114 &8113228088907671798
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1018330872124685257}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0771e30d465ab5748ab49162b6db0f7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isHoldable: 0
+  _lights:
+  - {fileID: 2008051319710888078}
+  - {fileID: 4158231740585717913}
+  _lightMeshes:
+  - {fileID: 6515281605113197191}
+  - {fileID: 8647447487212827280}
 --- !u!33 &8115126655046515088
 MeshFilter:
   m_ObjectHideFlags: 0

@@ -5,65 +5,60 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
 
+[RequireComponent(typeof(Outline))] //Makes sure the outline component is avalible
 public class LightSwitch : MonoBehaviour
 {
-    //PUBLIC VARIABLES
-    public DictionaryData lightData; //The dictionary data which holds the light and light model pair (Key is the model, value is the light)
-
     public bool lightOnOrOff = true; //A boolean to turn lights on or off
 
     //PRIVATE VARIABLES
-    private const float maxLightIntensity = 0.3f; //The maximum light intensity value
-    private const float maxEmissiveIntensity = 5.0f; //The maximum emission intensity value
-    private const float maximumRayLength = 0.5f; //The maximum length of the ray
+    [SerializeField] 
+    private List<Light> _lights;
+    [SerializeField]
+    private List<GameObject> _lightMeshes;
 
-    private Color emissiveColour = new Color(0.654f, 0.749f, 0.450f); //The emissive colour
+    private const float _maxLightIntensity = 0.3f; //The maximum light intensity value
+    private const float _maxEmissiveIntensity = 0.0f; //The maximum emission intensity value
+    private const float _maximumRayLength = 0.5f; //The maximum length of the ray
 
-    private bool xrModeOn; //A boolean to check if the game is using VR or not
+    private Outline _outline;
 
-    private RaycastHit hitData; //A variable to hold the data from a raycast hit
+    private Color _emissiveColour = new Color(0.654f, 0.749f, 0.450f); //The emissive colour
+
+    static private RaycastHit _hitData; //A variable to hold the data from a raycast hit
 
     public void Awake()
     {
-        if (!gameObject.GetComponent<Outline>())
-        {
-            gameObject.AddComponent<Outline>();
-        }
+        _outline = gameObject.GetComponent<Outline>();
 
         if (lightOnOrOff == false)
         {
-            foreach (KeyValuePair<GameObject, Light> item in lightData.lightModels) //Loops through all elements within the data dictionary
+            foreach (var item in _lights) //Loops through all elements within the data dictionary
             {
-                item.Key.GetComponent<Renderer>().material.DisableKeyword("_EMISSION"); //Turns off the emission
+                item.intensity = 0.0f;
+            }
 
-                item.Value.intensity = 0.0f;
+            foreach (var item in _lightMeshes) //Loops through all elements within the data dictionary
+            {
+                item.GetComponent<Renderer>().material.SetColor("_EmissionColor", Color.black);
             }
         }
         else
         {
-            foreach (KeyValuePair<GameObject, Light> item in lightData.lightModels) //Loops through all elements within the data dictionary
+            foreach (var item in _lights) //Loops through all elements within the data dictionary
             {
-                item.Key.GetComponent<Renderer>().material.EnableKeyword("_EMISSION"); //Turns on the emission
-
-                item.Key.GetComponent<Renderer>().material.SetColor("_EmissiveColor", emissiveColour * maxEmissiveIntensity); //Sets the colour and intensity
-
-                item.Value.intensity = maxLightIntensity;
+                item.intensity = _maxLightIntensity;
             }
-        }
 
-        if(XRSettings.enabled) //If VR is enabled
-        {
-            xrModeOn = true;
-        }
-        else
-        {
-            xrModeOn = false;
+            foreach (var item in _lightMeshes) //Loops through all elements within the data dictionary
+            {
+                item.GetComponent<Renderer>().material.SetColor("_EmissiveColor", _emissiveColour * _maxEmissiveIntensity); //Sets the colour and intensity
+            }
         }
     }
 
     public void Update()
     {
-        switch (xrModeOn)
+        switch (XRSettings.enabled)
         {
             case true:
                 
@@ -85,20 +80,20 @@ public class LightSwitch : MonoBehaviour
 
         Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward); //Draws a ray in the scene mode to check that it is casting
 
-        if (Physics.Raycast(rayToPoint, out hitData, maximumRayLength) && hitData.transform.gameObject.tag == "LightSwitch")
+        if (Physics.Raycast(rayToPoint, out _hitData, _maximumRayLength) && _hitData.transform.gameObject.tag == "LightSwitch" && _hitData.transform.gameObject == gameObject)
         {
-            Debug.Log("NOTICE: Light Switch being hit is '" + hitData.transform.gameObject.name + "'");
+            //Debug.Log("NOTICE: Light Switch being hit is '" + hitData.transform.gameObject.name + "'");
 
-            gameObject.GetComponent<Outline>().enabled = true;
+            _outline.enabled = true;
 
-            gameObject.GetComponent<Outline>().OutlineMode = Outline.Mode.OutlineVisible;
-            gameObject.GetComponent<Outline>().OutlineColor = Color.yellow;
-            gameObject.GetComponent<Outline>().OutlineWidth = 10.0f;
+            _outline.OutlineMode = Outline.Mode.OutlineVisible;
+            _outline.OutlineColor = Color.yellow;
+            _outline.OutlineWidth = 10.0f;
 
             return true;
         }
         else
-            gameObject.GetComponent<Outline>().enabled = false;
+            _outline.enabled = false;
 
         return false;
     }
@@ -107,13 +102,14 @@ public class LightSwitch : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Mouse0) && lightOnOrOff == false)
         {
-            foreach (KeyValuePair<GameObject, Light> item in lightData.lightModels) //Loops through all elements within the data dictionary
+            foreach (var item in _lights) //Loops through all elements within the data dictionary
             {
-                item.Key.GetComponent<Renderer>().material.EnableKeyword("_EMISSION"); //Turns on the emission
+                item.intensity = _maxLightIntensity;
+            }
 
-                item.Key.GetComponent<Renderer>().material.SetColor("_EmissiveColor", emissiveColour * maxEmissiveIntensity); //Sets the colour and intensity
-
-                item.Value.intensity = maxLightIntensity;
+            foreach (var item in _lightMeshes) //Loops through all elements within the data dictionary
+            {
+                item.GetComponent<Renderer>().material.SetColor("_EmissiveColor", _emissiveColour * _maxEmissiveIntensity); //Sets the colour and intensity
             }
 
             lightOnOrOff = true;
@@ -121,11 +117,14 @@ public class LightSwitch : MonoBehaviour
         else
             if (Input.GetKeyDown(KeyCode.Mouse0) && lightOnOrOff == true)
             {
-                foreach (KeyValuePair<GameObject, Light> item in lightData.lightModels) //Loops through all elements within the data dictionary
+                foreach (var item in _lights) //Loops through all elements within the data dictionary
                 {
-                    item.Key.GetComponent<Renderer>().material.DisableKeyword("_EMISSION"); //Turns off the emission
+                    item.intensity = 0.0f;
+                }
 
-                    item.Value.intensity = 0.0f;
+                foreach (var item in _lightMeshes) //Loops through all elements within the data dictionary
+                {
+                    item.GetComponent<Renderer>().material.SetColor("_EmissionColor", Color.black);
                 }
 
                 lightOnOrOff = false;
