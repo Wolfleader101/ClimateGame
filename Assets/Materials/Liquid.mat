@@ -21,22 +21,21 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: f56ab2be881764e329c28e50f10ef9ba, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
     - _Amplitude: 0.15
     - _Freq: 8
-    - _Line: 0.018
-    - _LineSmooth: 0.017
-    - _RimPower: 2.4
-    - _UseTexture: 0
+    - _Line: 0.0125
+    - _LineSmooth: 0.0624
+    - _RimPower: 2.87
     m_Colors:
-    - _FoamColor: {r: 0.4764151, g: 0.8036609, b: 1, a: 1}
-    - _RimColor: {r: 0.46226418, g: 0.46226418, b: 0.46226418, a: 1}
-    - _Tint: {r: 0.38527945, g: 0.5889281, b: 0.6981132, a: 1}
-    - _TopColor: {r: 0.5235849, g: 0.86388147, b: 1, a: 1}
+    - _FoamColor: {r: 0.9245283, g: 0.9245283, b: 0.9245283, a: 1}
+    - _RimColor: {r: 0.9433962, g: 0.9433962, b: 0.9433962, a: 1}
+    - _Tint: {r: 0, g: 0.4157939, b: 1, a: 1}
+    - _TopColor: {r: 0, g: 0.5252526, b: 1, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &1745377159441595686
 MonoBehaviour:
