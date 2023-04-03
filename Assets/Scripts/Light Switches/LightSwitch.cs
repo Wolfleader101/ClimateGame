@@ -16,12 +16,15 @@ public class LightSwitch : MonoBehaviour
 
     private Outline _outline;
 
-
     private void Start()
     {
         _outline = gameObject.GetComponent<Outline>();
         gameObject.GetComponent<Interactable>().OnInteractEvent += OnInteract;
-            
+
+        _outline.OutlineMode = Outline.Mode.OutlineVisible;
+        _outline.OutlineColor = Color.yellow;
+        _outline.OutlineWidth = 5.0f;
+
         if (lightOn == false)
         {
             foreach (var l in lights)

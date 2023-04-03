@@ -808,7 +808,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lightOn: 1
-  lights: []
+  lights:
+  - {fileID: 8782937313556947924}
 --- !u!114 &638549187
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2089,7 +2090,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lightOn: 1
-  lights: []
+  lights:
+  - {fileID: 5135479223301044147}
 --- !u!114 &1393834716
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3587,7 +3589,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lightOn: 1
-  lights: []
+  lights:
+  - {fileID: 6789045955907230572}
 --- !u!114 &2126627450
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8222,7 +8225,7 @@ GameObject:
   - component: {fileID: 2008051319710888078}
   - component: {fileID: 3914253149649230314}
   m_Layer: 0
-  m_Name: Point Light
+  m_Name: kitchenLight2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9072,6 +9075,7 @@ MonoBehaviour:
   lightOn: 1
   lights:
   - {fileID: 4158231740585717913}
+  - {fileID: 2008051319710888078}
 --- !u!114 &8113228088907671798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9723,7 +9727,7 @@ GameObject:
   - component: {fileID: 4158231740585717913}
   - component: {fileID: 1457250060760340989}
   m_Layer: 0
-  m_Name: Point Light 1
+  m_Name: kitchenLight1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
