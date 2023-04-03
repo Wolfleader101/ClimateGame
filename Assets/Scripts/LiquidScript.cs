@@ -96,7 +96,7 @@ public class LiquidScript : MonoBehaviour
             pos = worldPos - transform.position - new Vector3(0.0f, fillAmount - (comp.y * shapeCompensation), 0.0f);
         }
         else
-            pos = new Vector3(0.0f, Mathf.Lerp(-1.5f, 0.5f, fillAmount), 0.0f);
+            pos = new Vector3(0.0f, 0.0f,0.0f);//Mathf.Lerp(-1.5f, 0.5f, fillAmount), 0.0f);
 
         mat.SetVector("_FillAmount", pos);
     }
