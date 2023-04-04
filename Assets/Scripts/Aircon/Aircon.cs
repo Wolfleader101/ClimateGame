@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class aircon : MonoBehaviour
+public class Aircon : MonoBehaviour
 {
     
     [SerializeField] private TextMeshProUGUI text;
