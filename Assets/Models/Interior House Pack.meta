@@ -1,6 +1,10 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/PlantsPackage/demoScene.unity.meta
+guid: b99ddb0a9062e9f46ac6a88567c14fbd
+========
 guid: c16c663f23aa4a942acf18e1c637ce60
 folderAsset: yes
+>>>>>>>> origin/dev:Assets/Models/Interior House Pack.meta
 DefaultImporter:
   externalObjects: {}
   userData: 
