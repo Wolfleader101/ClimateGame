@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 6256084298286845933}
   - component: {fileID: 6256084298286845922}
   - component: {fileID: 6256084298286845923}
-  - component: {fileID: 6256084298286845920}
   m_Layer: 0
   m_Name: Pot
   m_TagString: Untagged
@@ -2243,20 +2242,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6256084298286845921}
   m_Mesh: {fileID: 0}
---- !u!64 &6256084298286845920
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6256084298286845921}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
 --- !u!1 &6256084298449462940
 GameObject:
   m_ObjectHideFlags: 0
@@ -2270,8 +2255,8 @@ GameObject:
   - component: {fileID: 6256084298449462936}
   - component: {fileID: 6256084298449462937}
   - component: {fileID: 6256084298449462942}
-  - component: {fileID: 6256084298449462943}
   - component: {fileID: 6256084298449462917}
+  - component: {fileID: 5280336956938081574}
   m_Layer: 0
   m_Name: Volume
   m_TagString: Untagged
@@ -5349,20 +5334,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6256084298449462940}
   m_Mesh: {fileID: 0}
---- !u!64 &6256084298449462943
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6256084298449462940}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
 --- !u!114 &6256084298449462917
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5376,3 +5347,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dirtFillPercent: 0
+--- !u!114 &5280336956938081574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6256084298449462940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0771e30d465ab5748ab49162b6db0f7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isHoldable: 0
