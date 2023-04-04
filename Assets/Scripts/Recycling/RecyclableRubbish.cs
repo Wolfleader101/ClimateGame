@@ -31,13 +31,15 @@ public class RecyclableRubbish : MonoBehaviour
         _rb = GetComponent<Rigidbody>();
     }
 
-    private void OnTriggerEnter(Collider other)
+
+    private void OnCollisionEnter(Collision collision)
     {
-        if (!other.CompareTag("RecycleBin") || !other.GetComponent<Recyclebin>()) return;
+        
+        if (!collision.gameObject.GetComponent<Recyclebin>()) return;
         
         Destroy(gameObject);
         
-        other.GetComponent<Recyclebin>().IncrementScore();
+        collision.gameObject.GetComponent<Recyclebin>().IncrementScore();
     }
     
     private void Update()
