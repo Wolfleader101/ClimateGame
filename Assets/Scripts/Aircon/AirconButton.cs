@@ -5,10 +5,10 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class airconButton : MonoBehaviour
+public class AirconButton : MonoBehaviour
 {
     [SerializeField] private bool buttonUp;
-    [SerializeField] private aircon airconScriptRef;
+    [SerializeField] private Aircon airconScriptRef;
 
 
     void Start()
