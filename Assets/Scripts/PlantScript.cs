@@ -9,8 +9,6 @@ public class PlantScript : MonoBehaviour
 
     private float dirtFill = 0.0f;
 
-    private float waterValue = 0.0f;
-
     private Material material;
 
     public float DirtFill

@@ -51,7 +51,7 @@ Shader "Unlit/FX/Liquid"
                 UNITY_FOG_COORDS(1)
                 float4 vertex : SV_POSITION;
                 float3 viewDir : COLOR;
-                float3 normal : COLOR2;     
+                float3 normal : COLOR2;
                 float3 fillPosition : TEXCOORD2;
                 float3 worldNormal : TEXCOORD3;
             };
@@ -90,27 +90,30 @@ Shader "Unlit/FX/Liquid"
  
                 o.vertex = UnityObjectToClipPos(v.vertex);
                 o.uv = TRANSFORM_TEX(v.uv, _MainTex);
-                UNITY_TRANSFER_FOG(o,o.vertex);
+                UNITY_TRANSFER_FOG(o, o.vertex);
                 // get world position of the vertex - transform position
                 float3 worldPos = mul (unity_ObjectToWorld, v.vertex.xyz);  
                 float3 worldPosOffset = float3(worldPos.x, worldPos.y , worldPos.z) - _FillAmount;
+
                 // rotate it around XY
-                float3 worldPosX= Unity_RotateAboutAxis_Degrees(worldPosOffset, float3(0,0,1),90);
+                float3 worldPosX= Unity_RotateAboutAxis_Degrees(worldPosOffset, float3(0,0,1), 90);
                 // rotate around XZ
-                float3 worldPosZ = Unity_RotateAboutAxis_Degrees(worldPosOffset, float3(1,0,0),90);
+                float3 worldPosZ = Unity_RotateAboutAxis_Degrees(worldPosOffset, float3(1,0,0), 90);
+
                 // combine rotations with worldPos, based on sine wave from script
-                float3 worldPosAdjusted = worldPos + (worldPosX  * _WobbleX)+ (worldPosZ* _WobbleZ); 
+                float3 worldPosAdjusted = worldPos + (worldPosX * _WobbleX) + (worldPosZ * _WobbleZ); 
+                
                 // how high up the liquid is
                 o.fillPosition =  worldPosAdjusted - _FillAmount;
                 o.viewDir = normalize(WorldSpaceViewDir(v.vertex));
                 o.normal = v.normal;
-                o.worldNormal  = mul ((float4x4)unity_ObjectToWorld, v.normal );
+                o.worldNormal  = mul((float4x4)unity_ObjectToWorld, v.normal);
                 return o;
             }
             
             fixed4 frag (v2f i, fixed facing : VFACE) : SV_Target
             {          
-                float3 worldNormal = mul( unity_ObjectToWorld, float4( i.normal, 0.0 ) ).xyz;
+                float3 worldNormal = mul( unity_ObjectToWorld, float4( i.normal, 0.0 )).xyz;
                 // rim light              
                 float fresnel = pow(1 - saturate(dot(worldNormal, i.viewDir)), _RimPower);          
                 float4 RimResult = fresnel * _RimColor;
@@ -118,7 +121,7 @@ Shader "Unlit/FX/Liquid"
                 
                 // add movement based deform, using a sine wave
                 float wobbleIntensity =  abs(_WobbleX) + abs(_WobbleZ);            
-                float wobble = sin((i.fillPosition.x * _Freq) + (i.fillPosition.z * _Freq ) + ( _Time.y)) * (_Amplitude *wobbleIntensity);               
+                float wobble = sin((i.fillPosition.x * _Freq) + (i.fillPosition.z * _Freq ) + ( _Time.y)) * (_Amplitude * wobbleIntensity);               
                 float movingfillPosition = i.fillPosition.y + wobble;
  
                 // sample the texture based on the fill line
@@ -128,7 +131,7 @@ Shader "Unlit/FX/Liquid"
  
                 // foam edge
                 float cutoffTop = step(movingfillPosition, 0.5);
-                float foam = cutoffTop * smoothstep(0.5 - _Line- _LineSmooth, 0.5 - _Line ,movingfillPosition);
+                float foam = cutoffTop * smoothstep(0.5 - _Line - _LineSmooth, 0.5 - _Line, movingfillPosition);
                 float4 foamColored = foam * _FoamColor;
  
                 // rest of the liquid minus the foam
@@ -140,16 +143,16 @@ Shader "Unlit/FX/Liquid"
                 finalResult.rgb += RimResult;
  
                 // little edge on the top of the backfaces
-                float backfaceFoam = (cutoffTop * smoothstep(0.5 - (0.2 * _Line)- _LineSmooth,0.5 - (0.2 * _Line),movingfillPosition ));
+                float backfaceFoam = (cutoffTop * smoothstep(0.5 - (0.2 * _Line) - _LineSmooth, 0.5 - (0.2 * _Line), movingfillPosition));
                 float4 backfaceFoamColor = _FoamColor * backfaceFoam;
                 // color of backfaces/ top
-                float4 topColor = (_TopColor * (1-backfaceFoam) + backfaceFoamColor) * (foam + result);
+                float4 topColor = (_TopColor * (1 - backfaceFoam) + backfaceFoamColor) * (foam + result);
  
                 // clip above the cutoff
                 clip(result + foam - 0.01);
  
                 //VFACE returns positive for front facing, negative for backfacing
-                return facing > 0 ? finalResult: topColor;
+                return facing > 0 ? finalResult : topColor;
                 
                 
             }

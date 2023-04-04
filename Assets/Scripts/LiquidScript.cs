@@ -9,7 +9,7 @@ public class LiquidScript : MonoBehaviour
 
     [Space]
 
-    [SerializeField] private float fillAmount = 1.0f;
+    [SerializeField, Range(0.0f, 1.0f)] private float fillAmount = 0.50f;
     [SerializeField] private float recovery = 1.0f;
     [SerializeField] private float thickness = 1.0f;
 
@@ -48,7 +48,11 @@ public class LiquidScript : MonoBehaviour
         if (mesh == null)
             mesh = GetComponent<MeshFilter>().sharedMesh;
         if (mat == null)
-            mat = GetComponent<MeshRenderer>().sharedMaterial;
+        {
+            foreach (Material material in GetComponent<MeshRenderer>().sharedMaterials)
+                if (material.name == "Liquid")
+                    mat = material;
+        }
     }
 
     private void Update()
@@ -84,19 +88,13 @@ public class LiquidScript : MonoBehaviour
 
     private void UpdatePosition()
     {
-        Vector3 worldPos = transform.TransformPoint(mesh.bounds.center);
+        Vector3 fillMin = mesh.bounds.min;
+        Vector3 fillMax = mesh.bounds.max;
 
         if (shapeCompensation > 0.0f)
-        {
-            if (Time.deltaTime != 0.0f)
-                comp = Vector3.Lerp(comp, (worldPos - new Vector3(0, GetLowestPointOnMesh(), 0.0f)), Time.deltaTime * 10.0f);
-            else
-                comp = worldPos - new Vector3(0.0f, GetLowestPointOnMesh(), 0.0f);
-
-            pos = worldPos - transform.position - new Vector3(0.0f, fillAmount - (comp.y * shapeCompensation), 0.0f);
-        }
+            pos = new Vector3(0.0f, Mathf.Lerp(fillMin.y - 0.5f, 0.0f + shapeCompensation, fillAmount), 0.0f);
         else
-            pos = new Vector3(0.0f, 0.0f,0.0f);//Mathf.Lerp(-1.5f, 0.5f, fillAmount), 0.0f);
+            pos = new Vector3(0.0f, Mathf.Lerp(fillMin.y - 0.5f, 0.0f, fillAmount), 0.0f);
 
         mat.SetVector("_FillAmount", pos);
     }
@@ -128,26 +126,5 @@ public class LiquidScript : MonoBehaviour
             angularVelocity = Vector3.zero;
         }
         return angularVelocity;
-    }
-
-    private float GetLowestPointOnMesh()
-    {
-        float lowestY = float.MaxValue;
-        Vector3 lowestVert = Vector3.zero;
-
-        Vector3[] vertices = mesh.vertices;
-
-        for (int i = 0; i < vertices.Length; ++i)
-        {
-            Vector3 position = transform.TransformPoint(vertices[i]);
-
-            if (position.y < lowestY)
-            {
-                lowestY = position.y;
-                lowestVert = position;
-            }
-        }
-
-        return lowestVert.y;
     }
 }
