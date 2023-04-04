@@ -13,7 +13,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: lambert12SG
-    second: {fileID: 2100000, guid: c45bde48c9b1cb8468c953b7963a9cf6, type: 2}
+    second: {fileID: 2100000, guid: 2133cd77ff67772429af7f1505dade54, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -73,7 +73,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: lambert24SG
-    second: {fileID: 2100000, guid: f01fd745259cca64d82590f963cd5944, type: 2}
+    second: {fileID: 2100000, guid: 716d5a3e0c4a6544082e99477253958e, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -108,12 +108,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: lambert8SG
-    second: {fileID: 2100000, guid: e28ea8ca765783347b9f73806c20a424, type: 2}
+    second: {fileID: 2100000, guid: 83ef37d7ffedf9241b2b3ff8feb621de, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: lambert9SG
-    second: {fileID: 2100000, guid: f9b7d2aaa0757524e9c64f1f24646cc9, type: 2}
+    second: {fileID: 2100000, guid: 48693dbcc19fcf143b163a2c923ae656, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -155,10 +155,10 @@ ModelImporter:
     addColliders: 0
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
-    importVisibility: 1
-    importBlendShapes: 1
-    importCameras: 1
-    importLights: 1
+    importVisibility: 0
+    importBlendShapes: 0
+    importCameras: 0
+    importLights: 0
     nodeNameCollisionStrategy: 1
     fileIdsGeneration: 2
     swapUVChannels: 0
