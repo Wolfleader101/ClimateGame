@@ -7,9 +7,9 @@ using Object = UnityEngine.Object;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI airconUI;
-    [SerializeField] private TextMeshProUGUI plantUI;
     [SerializeField] private TextMeshProUGUI lightUI;
+    [SerializeField] private TextMeshProUGUI plantUI;
+    [SerializeField] private TextMeshProUGUI airconUI;
     [SerializeField] private TextMeshProUGUI binUI;
     
     // keep track of lights
