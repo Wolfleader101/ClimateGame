@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using System.Collections;
 
@@ -12,6 +13,8 @@ public class PlantScript : MonoBehaviour
 
     [SerializeField] private bool canGrow = false; // show for debug (hide in inspector)
 
+    private bool _grown;
+    public event Action OnGrown;
     private void Start()
     {
         gameObject.GetComponent<Interactable>().OnInteractEvent += FillDirt;
@@ -22,11 +25,20 @@ public class PlantScript : MonoBehaviour
     private void FillDirt(InteractableHandler handler)
     {
         dirtFill += 0.1f;
+        
         Fill(dirtFill, dirtMaterial);
 
         if (dirtFill > 0.94f)
             canGrow = true;
         else StopAllCoroutines();
+        
+        
+        if (canGrow && !_grown)
+        {
+            OnGrown();
+        }
+        
+        if (dirtFill > 1.0f) _grown = true;
     }
 
     private void Update()
@@ -39,6 +51,7 @@ public class PlantScript : MonoBehaviour
     {   
         plantFill = 0.05f * Time.time;
         Fill(plantFill, plantMaterial);
+
 
         yield return null;
     }

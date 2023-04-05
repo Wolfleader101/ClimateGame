@@ -8,6 +8,8 @@ public class LightSwitch : MonoBehaviour
 
     [SerializeField] private List<Light> lights;
 
+    public bool LightOn => lightOn;
+
     //PRIVATE VARIABLES
     private const float MaxLightIntensity = 0.3f; //The maximum light intensity value
     private const float MaxEmissiveIntensity = 5.0f; //The maximum emission intensity value

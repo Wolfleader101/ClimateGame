@@ -1,15 +1,14 @@
+using System;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 [RequireComponent(typeof(Collider))]
 public class Recyclebin : MonoBehaviour
 {
-
-    //public string recyclingType;
-
-    private int _score = 0;
+    public event Action OnRubbishIncrement;
 
     public void IncrementScore()
     {
-        _score++;
+        OnRubbishIncrement();
     }
 }
