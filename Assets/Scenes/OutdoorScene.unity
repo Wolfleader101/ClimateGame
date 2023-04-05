@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.23091888, g: 0.30764163, b: 0.39152417, a: 1}
+  m_IndirectSpecularColor: {r: 0.23089737, g: 0.30763015, b: 0.391523, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -9581,7 +9581,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh63214
+  m_Name: pb_Mesh33450
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -14454,7 +14454,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh63230
+  m_Name: pb_Mesh33466
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -33674,7 +33674,7 @@ MonoBehaviour:
   plantFill: 0
   dirtMaterial: {fileID: 2100000, guid: 883da1c914fe24a44bee59054d91dcf9, type: 2}
   plantMaterial: {fileID: 2100000, guid: bfc6bb500fb50cb4fb9623470c04b555, type: 2}
-  usingDirt: 0
+  usingDirt: 1
 --- !u!33 &6256084298003153588
 MeshFilter:
   m_ObjectHideFlags: 10
@@ -36235,20 +36235,6 @@ Transform:
   m_Father: {fileID: 1443659816}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!64 &6945524174476056052
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6954586270887776552}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300024, guid: b69b26c8b73b8bd49bf243bbe541a2e0, type: 3}
 --- !u!1 &6954586270887776552
 GameObject:
   m_ObjectHideFlags: 0
@@ -36260,7 +36246,6 @@ GameObject:
   - component: {fileID: 6957532700472337180}
   - component: {fileID: 6986516278502093774}
   - component: {fileID: 6976529611934373334}
-  - component: {fileID: 6945524174476056052}
   m_Layer: 0
   m_Name: Carrot_Plant
   m_TagString: Untagged
