@@ -98,7 +98,7 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _EnvironmentReflections: 1
-    - _FillAmount: 1.0000001
+    - _FillAmount: 1.1000001
     - _FillMax: 0.63
     - _FillMin: 0
     - _GlossMapScale: 0
