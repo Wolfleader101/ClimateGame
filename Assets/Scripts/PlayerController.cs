@@ -76,7 +76,7 @@ public class PlayerController : MonoBehaviour
     public void OnLook(InputAction.CallbackContext value)
     {
         var sens = mouseSens;
-        if(value.control.name == "trackpad")
+        if(value.control.name == "trackpad" || value.control.name == "thumbstick")
         {
             sens = 100;
         }

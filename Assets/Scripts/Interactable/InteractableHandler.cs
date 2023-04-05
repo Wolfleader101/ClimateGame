@@ -42,6 +42,17 @@ public class InteractableHandler : MonoBehaviour
             return;
         }
 
+
+        // if (_vrEnabled)
+        // {
+        //     if (interactable.Holdable) _heldInteractable = interactable;
+        //     interactable.OnInteract(this);
+        //     
+        //     return;
+        // }
+
+        if (_vrEnabled) return;
+
         var ray = _camera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
         if (Physics.Raycast(ray, out var hit))
         {
