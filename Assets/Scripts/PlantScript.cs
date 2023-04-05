@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Interactable))]
 public class PlantScript : MonoBehaviour
 {
     public static EventManager.OnValueChangeDelegate OnValueChange;
@@ -30,6 +31,7 @@ public class PlantScript : MonoBehaviour
         material = GetComponent<MeshRenderer>().sharedMaterial;
 
         OnValueChange += HandleChange;
+        gameObject.GetComponent<Interactable>().OnInteractEvent += Grow;
     }
 
     private void HandleChange(float val)
@@ -39,9 +41,9 @@ public class PlantScript : MonoBehaviour
         material.SetFloat("_Fill", DirtFill);
     }
 
-    private void Grow()
+    private void Grow(InteractableHandler handler)
     {
-        
+        DirtFill += 0.1f;
     }
 
     private void Update()
