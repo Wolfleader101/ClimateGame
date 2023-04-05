@@ -73,8 +73,6 @@ public class GameManager : MonoBehaviour
         
         lightUI.text = _lightsOff + "/" + _switches.Count;
         _lightsOff = 0;
-
-
     }
 
     void OnBinScoreIncrease()
