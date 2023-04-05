@@ -33674,7 +33674,7 @@ MonoBehaviour:
   plantFill: 0
   dirtMaterial: {fileID: 2100000, guid: 883da1c914fe24a44bee59054d91dcf9, type: 2}
   plantMaterial: {fileID: 2100000, guid: bfc6bb500fb50cb4fb9623470c04b555, type: 2}
-  usingDirt: 1
+  usingDirt: 0
 --- !u!33 &6256084298003153588
 MeshFilter:
   m_ObjectHideFlags: 10

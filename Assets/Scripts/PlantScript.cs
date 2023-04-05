@@ -49,7 +49,7 @@ public class PlantScript : MonoBehaviour
             OnGrown();
         }
         
-        if (dirtFill > 1.0f) _grown = true;
+        if (!usingDirt || dirtFill > 1.0f) _grown = true;
     }
 
     private void Update()
