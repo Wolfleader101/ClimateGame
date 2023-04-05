@@ -20503,7 +20503,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh109278
+  m_Name: pb_Mesh37940
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -22518,7 +22518,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh109262
+  m_Name: pb_Mesh37924
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -32181,6 +32181,7 @@ MonoBehaviour:
   dirtMaterial: {fileID: 2100000, guid: 883da1c914fe24a44bee59054d91dcf9, type: 2}
   plantMaterial: {fileID: 2100000, guid: bfc6bb500fb50cb4fb9623470c04b555, type: 2}
   canGrow: 0
+  timer: 0
 --- !u!33 &6256084298003153588
 MeshFilter:
   m_ObjectHideFlags: 10
@@ -36239,10 +36240,6 @@ PrefabInstance:
     - target: {fileID: 8872405343625970307, guid: db6ab54a8b376b14cb2d40e13ccbca1a,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

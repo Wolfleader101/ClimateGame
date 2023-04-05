@@ -12,6 +12,8 @@ public class PlantScript : MonoBehaviour
 
     [SerializeField] private bool canGrow = false; // show for debug (hide in inspector)
 
+    [SerializeField] private float timer = 0.0f;
+
     private void Start()
     {
         gameObject.GetComponent<Interactable>().OnInteractEvent += FillDirt;
@@ -37,7 +39,9 @@ public class PlantScript : MonoBehaviour
 
     private IEnumerator GrowPlant()
     {   
-        plantFill = 0.05f * Time.time;
+        timer += Time.deltaTime;
+
+        plantFill = 0.20f * timer;
         Fill(plantFill, plantMaterial);
 
         yield return null;
