@@ -3,11 +3,6 @@ using UnityEngine;
 public class Hover : MonoBehaviour
 {
     [SerializeField, Range(0, 10)] private float speed = 5.0f;
-    
-    [Space]
-
-    [SerializeField] private float min = 0.0f;
-    [SerializeField] private float max = 1.0f;
 
     [Space]
 

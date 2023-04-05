@@ -1,53 +1,51 @@
 using UnityEngine;
+using System.Collections;
 
 [RequireComponent(typeof(Interactable))]
 public class PlantScript : MonoBehaviour
 {
-    public static EventManager.OnValueChangeDelegate OnValueChange;
+    [SerializeField, Range(0.0f, 1.0f)] private float dirtFill = 0.0f;
+    [SerializeField, Range(0.0f, 1.0f)] private float plantFill = 0.0f;
 
-    [SerializeField, Range(0, 100)]
-    private int dirtFillPercent = 0;
+    [SerializeField] private Material dirtMaterial;
+    [SerializeField] private Material plantMaterial;
 
-    private float dirtFill = 0.0f;
-
-    private Material material;
-
-    public float DirtFill
-    {
-        get { return dirtFill; }
-        set
-        {
-            if (dirtFill == value) return;
-            
-            dirtFill = value;
-            
-            if (OnValueChange != null)
-                OnValueChange(dirtFill);
-        }
-    }
+    [SerializeField] private bool canGrow = false; // show for debug (hide in inspector)
 
     private void Start()
     {
-        material = GetComponent<MeshRenderer>().sharedMaterial;
+        gameObject.GetComponent<Interactable>().OnInteractEvent += FillDirt;
 
-        OnValueChange += HandleChange;
-        gameObject.GetComponent<Interactable>().OnInteractEvent += Grow;
+        dirtMaterial.SetFloat("_FillAmount", 0.0f);
+        plantMaterial.SetFloat("_FillAmount", 0.0f);
     }
-
-    private void HandleChange(float val)
+    private void FillDirt(InteractableHandler handler)
     {
-        print("Value Changed!");
+        dirtFill += 0.1f;
+        Fill(dirtFill, dirtMaterial);
 
-        material.SetFloat("_Fill", DirtFill);
-    }
-
-    private void Grow(InteractableHandler handler)
-    {
-        DirtFill += 0.1f;
+        if (dirtFill > 0.94f)
+            canGrow = true;
+        else StopAllCoroutines();
     }
 
     private void Update()
     {
-        DirtFill = (float)dirtFillPercent * 0.01f;
+        if (canGrow && plantFill < 0.96f)
+            StartCoroutine(GrowPlant());
+    }
+
+    private IEnumerator GrowPlant()
+    {   
+        plantFill = 0.05f * Time.time;
+        Fill(plantFill, plantMaterial);
+
+        yield return null;
+    }
+
+
+    private void Fill(float val, Material material)
+    {
+        material.SetFloat("_FillAmount", val);
     }
 }
