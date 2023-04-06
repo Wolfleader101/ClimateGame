@@ -95,6 +95,6 @@ public class GameManager : MonoBehaviour
 
     public void OnOpenMenu(InputAction.CallbackContext context)
     {
-        SceneManager.LoadScene("Menu");
+        Application.Quit();
     }
 }
