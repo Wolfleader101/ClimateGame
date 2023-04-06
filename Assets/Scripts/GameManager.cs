@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using Object = UnityEngine.Object;
 
 public class GameManager : MonoBehaviour
@@ -88,5 +90,11 @@ public class GameManager : MonoBehaviour
     void OnGrow()
     {
         _plantsGrown++;
+    }
+
+
+    public void OnOpenMenu(InputAction.CallbackContext context)
+    {
+        SceneManager.LoadScene("Menu");
     }
 }

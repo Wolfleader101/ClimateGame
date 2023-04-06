@@ -15,11 +15,6 @@ public class SceneLoader : MonoBehaviour
 
     public void ExitGame()
     {
-        int i = 0;
-
-        while (true)
-        {
-            ++i;
-        }
+       Application.Quit();
     }
 }
