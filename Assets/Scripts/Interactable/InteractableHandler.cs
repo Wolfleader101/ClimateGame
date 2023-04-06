@@ -54,7 +54,7 @@ public class InteractableHandler : MonoBehaviour
         if (_vrEnabled) return;
 
         var ray = _camera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
-        if (Physics.Raycast(ray, out var hit))
+        if (Physics.Raycast(ray, out var hit, 2))
         {
             var interactable = hit.collider.gameObject.GetComponent<Interactable>();
             if (!interactable) return;
