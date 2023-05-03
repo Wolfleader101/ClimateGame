@@ -1,5 +1,10 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scenes/Menu.unity.meta
 guid: e01cb5af8b624e346baefa17a1eb423c
+========
+guid: 7e56030369c608b41ade9b3d038cca0d
+folderAsset: yes
+>>>>>>>> origin/Adding-Interactables:Assets/Models/OpenGameArt - tiko479.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

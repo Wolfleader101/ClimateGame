@@ -1,7 +1,12 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Prefabs/AC.prefab.meta
+guid: df4001e858c36414091470a999d47e56
+PrefabImporter:
+========
 guid: 5c1a66184ff96a545ad4ed3a341088ce
 folderAsset: yes
 DefaultImporter:
+>>>>>>>> origin/Adding-Interactables:Assets/Models/Ultimate Stylized Nature Pack - Quaternius.meta
   externalObjects: {}
   userData: 
   assetBundleName: 

@@ -7,10 +7,10 @@ using UnityEngine;
 public class RecyclableRubbish : MonoBehaviour
 {
     [Header("Joint Configuration")]
-    public float force = 100.0f;
-    public float damping = 30.0f;
+    public float force = 115.0f;
+    public float damping = 7.5f;
 
-    [Range(0, 10)][SerializeField] private float grabDistance = 2.0f;
+    [Range(0, 2.0f)][SerializeField] private float grabDistance = 1.0f;
 
     
     private Camera _camera;

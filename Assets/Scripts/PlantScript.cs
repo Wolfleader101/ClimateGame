@@ -1,51 +1,78 @@
+using System;
 using UnityEngine;
+using System.Collections;
 
+[RequireComponent(typeof(Interactable))]
 public class PlantScript : MonoBehaviour
 {
-    public static EventManager.OnValueChangeDelegate OnValueChange;
+    [SerializeField, Range(0.0f, 1.0f)] private float dirtFill = 0.0f;
+    [SerializeField, Range(0.0f, 1.0f)] private float plantFill = 0.0f;
 
-    [SerializeField, Range(0, 100)]
-    private int dirtFillPercent = 0;
+    [SerializeField] private Material dirtMaterial;
+    [SerializeField] private Material plantMaterial;
 
-    private float dirtFill = 0.0f;
+    [SerializeField] private bool usingDirt = false;
+    
+    public event Action OnGrown;
+    
+    private bool canGrow = false; // show for debug (hide in inspector)
 
-    private Material material;
+    private float timer = 0.0f;
 
-    public float DirtFill
-    {
-        get { return dirtFill; }
-        set
-        {
-            if (dirtFill == value) return;
-            
-            dirtFill = value;
-            
-            if (OnValueChange != null)
-                OnValueChange(dirtFill);
-        }
-    }
+    private bool _grown;
 
     private void Start()
     {
-        material = GetComponent<MeshRenderer>().sharedMaterial;
+        gameObject.GetComponent<Interactable>().OnInteractEvent += Interact;
 
-        OnValueChange += HandleChange;
+        if (usingDirt)
+            dirtMaterial.SetFloat("_FillAmount", 0.0f);
+
+        plantMaterial.SetFloat("_FillAmount", 0.0f);
     }
-
-    private void HandleChange(float val)
+    private void Interact(InteractableHandler handler)
     {
-        print("Value Changed!");
+        if (usingDirt)
+        {
+            dirtFill += 0.1f;
+            Fill(dirtFill, dirtMaterial);
 
-        material.SetFloat("_Fill", DirtFill);
-    }
-
-    private void Grow()
-    {
+            if (dirtFill > 0.94f)
+                canGrow = true;
+            else StopAllCoroutines();
+        }
+        else
+            canGrow = true;
         
+        if (canGrow && !_grown)
+        {
+            OnGrown();
+        }
+        
+        if (!usingDirt || dirtFill > 1.0f) _grown = true;
     }
 
     private void Update()
     {
-        DirtFill = (float)dirtFillPercent * 0.01f;
+        if (canGrow && plantFill < 0.96f)
+            StartCoroutine(GrowPlant());
+
+    }
+
+    private IEnumerator GrowPlant()
+    {   
+        timer += Time.deltaTime;
+
+        plantFill = 0.20f * timer;
+        Fill(plantFill, plantMaterial);
+
+
+        yield return null;
+    }
+
+
+    private void Fill(float val, Material material)
+    {
+        material.SetFloat("_FillAmount", val);
     }
 }

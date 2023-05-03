@@ -5,12 +5,11 @@ using ScriptableObjects.Characters;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Interactions;
+using UnityEngine.XR;
 
 [RequireComponent(typeof(PlayerInput), typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private bool useVr;
-
     [SerializeField] private float mouseSens = 10f;
     
     [SerializeField] private Transform cameraTransform;
@@ -31,12 +30,16 @@ public class PlayerController : MonoBehaviour
     
     private Camera _camera;
     
+    private bool _vrEnabled;
+    
     private void Start()
     {
         if (characterController == null) characterController = GetComponent<CharacterController>();
 
         //lock cursor to mid
         Cursor.lockState = CursorLockMode.Locked;
+        
+        _vrEnabled = XRSettings.enabled;
         
         _camera = Camera.main;
     }
@@ -76,7 +79,7 @@ public class PlayerController : MonoBehaviour
     public void OnLook(InputAction.CallbackContext value)
     {
         var sens = mouseSens;
-        if(value.control.name == "trackpad")
+        if(_vrEnabled)
         {
             sens = 100;
         }
