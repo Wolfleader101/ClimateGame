@@ -1,9 +1,7 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using ScriptableObjects.Characters;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.XR;
 
 [RequireComponent(typeof(CharacterController))]
 public class InputHandler : MonoBehaviour
@@ -27,30 +25,8 @@ public class InputHandler : MonoBehaviour
     private float _speed;
     private float _verticalVelocity;
 
-    private bool IsCurrentDeviceMouse
-    {
-        get
-        {
-#if ENABLE_INPUT_SYSTEM
-				return playerInput.currentControlScheme == "KeyboardMouse";
-#else
-            return false;
-#endif
-        }
-    }
+    private bool _vrEnabled = false;
     
-    private bool IsCurrentXR
-    {
-        get
-        {
-#if ENABLE_INPUT_SYSTEM
-            return playerInput.currentControlScheme == "XR";
-#else
-            return false;
-#endif
-        }
-    }
-
     private void Awake()
     {
         _moveAction = playerInput.actions["Move"];
@@ -64,6 +40,7 @@ public class InputHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        _vrEnabled = XRSettings.enabled && XRSettings.isDeviceActive;
         Jump();
 
         // ground check
@@ -133,7 +110,7 @@ public class InputHandler : MonoBehaviour
         if (look.sqrMagnitude >= 0.01f)
         {
             //Don't multiply mouse input by Time.deltaTime
-            float deltaTimeMultiplier = IsCurrentDeviceMouse ? 1.0f : Time.deltaTime;
+            float deltaTimeMultiplier = _vrEnabled ? 5.0f : 1.0f;
             
             _xRotation += look.y * rotationSpeed * deltaTimeMultiplier;
             _yRotation = look.x * rotationSpeed * deltaTimeMultiplier;
@@ -145,5 +122,9 @@ public class InputHandler : MonoBehaviour
             // rotate the player left and right
             transform.Rotate(Vector3.up * _yRotation);
         }
+
+        if (!_vrEnabled) return;
+        var prev = transform.localRotation.eulerAngles;
+        transform.localRotation = Quaternion.Euler(prev.x, cam.transform.localRotation.eulerAngles.y, prev.z);
     }
 }

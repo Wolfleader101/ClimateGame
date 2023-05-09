@@ -16,6 +16,6 @@ MonoBehaviour:
   maxHealth: 100
   startingStamina: 100
   maxStamina: 100
-  movementSpeed: 5
+  movementSpeed: 10
   jumpHeight: 1.2
   gravityScaleMultiplier: 1.5
