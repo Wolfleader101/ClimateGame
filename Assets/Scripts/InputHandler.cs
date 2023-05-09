@@ -1,3 +1,4 @@
+using System;
 using ScriptableObjects.Characters;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -11,6 +12,7 @@ public class InputHandler : MonoBehaviour
     [SerializeField] private float rotationSpeed = 1f;
     [SerializeField] private CharacterController controller;
     [SerializeField] private GameObject cam;
+    [SerializeField] private GameObject headTracker;
 
 
     private InputAction _moveAction;
@@ -46,6 +48,10 @@ public class InputHandler : MonoBehaviour
 
         Move();
 
+    }
+
+    private void LateUpdate()
+    {
         Look();
     }
 
@@ -84,7 +90,6 @@ public class InputHandler : MonoBehaviour
     {
         var look = _lookAction.ReadValue<Vector2>();
 
-
         if (look.sqrMagnitude >= 0.01f)
         {
             //Don't multiply mouse input by Time.deltaTime
@@ -100,9 +105,12 @@ public class InputHandler : MonoBehaviour
             // rotate the player left and right
             transform.Rotate(Vector3.up * _yRotation);
         }
+        
+        if (_vrEnabled)
+        {
+            var prev =   transform.localEulerAngles;
+            transform.localEulerAngles = new Vector3( headTracker.transform.localEulerAngles.x, headTracker.transform.localEulerAngles.y, prev.z);
+        }
 
-        if (!_vrEnabled) return;
-        var prev = transform.localRotation.eulerAngles;
-        transform.localRotation = Quaternion.Euler(prev.x, cam.transform.localRotation.eulerAngles.y, prev.z);
     }
 }
