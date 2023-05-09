@@ -11,7 +11,6 @@ public class InputHandler : MonoBehaviour
     [SerializeField] private float rotationSpeed = 1f;
     [SerializeField] private CharacterController controller;
     [SerializeField] private GameObject cam;
-    [SerializeField] private float speedChangeRate = 10.0f;
 
 
     private InputAction _moveAction;
@@ -60,37 +59,16 @@ public class InputHandler : MonoBehaviour
     {
         var move = _moveAction.ReadValue<Vector2>();
         
-
         float targetSpeed = character.MovementSpeed;
 
         if (move == Vector2.zero) targetSpeed = 0.0f;
 
-        // a reference to the players current horizontal velocity
-        float currentHorizontalSpeed = new Vector3(controller.velocity.x, 0.0f, controller.velocity.z).magnitude;
 
-        float speedOffset = 0.1f;
-        float inputMagnitude = 1f;
-
-        // accelerate or decelerate to target speed
-        if (currentHorizontalSpeed < targetSpeed - speedOffset || currentHorizontalSpeed > targetSpeed + speedOffset)
-        {
-            // creates curved result rather than a linear one giving a more organic speed change
-            // note T in Lerp is clamped, so we don't need to clamp our speed
-            _speed = Mathf.Lerp(currentHorizontalSpeed, targetSpeed * inputMagnitude, Time.deltaTime * speedChangeRate);
-
-            // round speed to 3 decimal places
-            _speed = Mathf.Round(_speed * 1000f) / 1000f;
-        }
-        else
-        {
-            _speed = targetSpeed;
-        }
-
+        _speed = targetSpeed;
+        
         // normalise input direction
         Vector3 inputDirection = new Vector3(move.x, 0.0f, move.y).normalized;
 
-        // note: Vector2's != operator uses approximation so is not floating point error prone, and is cheaper than magnitude
-        // if there is a move input rotate player when the player is moving
         if (move != Vector2.zero)
         {
             // move
