@@ -12,7 +12,7 @@ public class InputHandler : MonoBehaviour
     [SerializeField] private BaseCharacter character;
     [SerializeField] private float rotationSpeed = 1f;
     [SerializeField] private CharacterController controller;
-    [SerializeField] private GameObject camera;
+    [SerializeField] private GameObject cam;
     [SerializeField] private float speedChangeRate = 10.0f;
 
 
@@ -25,9 +25,7 @@ public class InputHandler : MonoBehaviour
     private float _yRotation = 0;
 
     private float _speed;
-    private float _rotationVelocity;
     private float _verticalVelocity;
-    private float _terminalVelocity = 53.0f;
 
     private bool IsCurrentDeviceMouse
     {
@@ -84,6 +82,7 @@ public class InputHandler : MonoBehaviour
     private void Move()
     {
         var move = _moveAction.ReadValue<Vector2>();
+        
 
         float targetSpeed = character.MovementSpeed;
 
@@ -137,14 +136,14 @@ public class InputHandler : MonoBehaviour
             float deltaTimeMultiplier = IsCurrentDeviceMouse ? 1.0f : Time.deltaTime;
             
             _xRotation += look.y * rotationSpeed * deltaTimeMultiplier;
-            _rotationVelocity = look.x * rotationSpeed * deltaTimeMultiplier;
+            _yRotation = look.x * rotationSpeed * deltaTimeMultiplier;
 
             _xRotation = Mathf.Clamp(_xRotation, -90f, 90f);
 
-            camera.transform.localRotation = Quaternion.Euler(_xRotation, 0.0f, 0.0f);
+            cam.transform.localRotation = Quaternion.Euler(_xRotation, 0.0f, 0.0f);
 
             // rotate the player left and right
-            transform.Rotate(Vector3.up * _rotationVelocity);
+            transform.Rotate(Vector3.up * _yRotation);
         }
     }
 }

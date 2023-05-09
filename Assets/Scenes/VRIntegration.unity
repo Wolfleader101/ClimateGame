@@ -281,7 +281,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 317485173}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.36144, z: 0}
+  m_LocalPosition: {x: 0, y: 0.75, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -865,7 +865,7 @@ MonoBehaviour:
   m_RequestedTrackingMode: 1
   m_TrackingOriginMode: 1
   m_TrackingSpace: 0
-  m_CameraYOffset: 1.36144
+  m_CameraYOffset: 0.75
 --- !u!4 &2057166586
 Transform:
   m_ObjectHideFlags: 0
@@ -928,8 +928,28 @@ MonoBehaviour:
   m_ControlsChangedEvent:
     m_PersistentCalls:
       m_Calls: []
-  m_ActionEvents: []
-  m_NeverAutoSwitchControlSchemes: 0
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b894f2cc-bde8-4929-8378-16bc8b341e25
+    m_ActionName: Player/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 3a5287e8-fc41-4119-b233-8faa8d97fd77
+    m_ActionName: Player/Jump[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 1209f4b8-f46b-4a6d-ae0a-0a155a8285d7
+    m_ActionName: Player/Look[/Mouse/delta]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c59cb918-e385-4e77-8362-93982f8e264e
+    m_ActionName: Player/Interact[/Keyboard/e,/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 9a5c0623-08b4-4b2a-bc68-1e35290f1b10
+    m_ActionName: Player/Menu[/Keyboard/escape]
+  m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: KeyboardMouse
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
@@ -967,7 +987,7 @@ MonoBehaviour:
   character: {fileID: 11400000, guid: d669e20a65e0ffe44b274e4c6949573d, type: 2}
   rotationSpeed: 1
   controller: {fileID: 2075220247}
-  camera: {fileID: 651837888}
+  cam: {fileID: 651837888}
   speedChangeRate: 10
 --- !u!143 &2075220247
 CharacterController:
