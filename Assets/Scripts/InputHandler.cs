@@ -80,10 +80,14 @@ public class InputHandler : MonoBehaviour
             // move
             inputDirection = transform.right * move.x + transform.forward * move.y;
         }
+        
+        
 
         // move the player
-        controller.Move(inputDirection.normalized * (_speed * Time.deltaTime) +
-                        new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
+        // controller.Move(inputDirection.normalized * (_speed * Time.deltaTime) +
+        //                 new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
+        controller.Move(inputDirection * (_speed * Time.deltaTime));
+
     }
 
     private void Look()
@@ -108,9 +112,11 @@ public class InputHandler : MonoBehaviour
         
         if (_vrEnabled)
         {
-            var prev =   transform.localEulerAngles;
-            transform.localEulerAngles = new Vector3( headTracker.transform.localEulerAngles.x, headTracker.transform.localEulerAngles.y, prev.z);
+            var prev = transform.localEulerAngles;
+            var prevCam = cam.transform.localEulerAngles;
+            cam.transform.localEulerAngles =
+                new Vector3(headTracker.transform.localEulerAngles.x, prevCam.y, prevCam.z);
+            transform.localEulerAngles = new Vector3( prev.x, headTracker.transform.localEulerAngles.y, prev.z);
         }
-
     }
 }
