@@ -2,7 +2,10 @@ using System;
 using ScriptableObjects.Characters;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.XR;
 using UnityEngine.XR;
+using UnityEngine.XR.Management;
+using TrackedPoseDriver = UnityEngine.SpatialTracking.TrackedPoseDriver;
 
 [RequireComponent(typeof(CharacterController))]
 public class InputHandler : MonoBehaviour
@@ -27,7 +30,7 @@ public class InputHandler : MonoBehaviour
     private float _verticalVelocity;
 
     private bool _vrEnabled = false;
-    
+
     private void Awake()
     {
         _moveAction = playerInput.actions["Move"];
@@ -94,23 +97,34 @@ public class InputHandler : MonoBehaviour
     {
         var look = _lookAction.ReadValue<Vector2>();
 
+        var usingInput = false;
+
         if (look.sqrMagnitude >= 0.01f)
         {
             //Don't multiply mouse input by Time.deltaTime
-            float deltaTimeMultiplier = _vrEnabled ? 5.0f : 1.0f;
+            float deltaTimeMultiplier = _vrEnabled ? 1.5f : 1.0f;
             
             _xRotation += look.y * rotationSpeed * deltaTimeMultiplier;
             _yRotation = look.x * rotationSpeed * deltaTimeMultiplier;
 
             _xRotation = Mathf.Clamp(_xRotation, -90f, 90f);
 
-            cam.transform.localRotation = Quaternion.Euler(_xRotation, 0.0f, 0.0f);
+            
+            // rotate camera up and down
+            var prevCam = cam.transform.localEulerAngles;
+            cam.transform.localEulerAngles =
+                new Vector3(headTracker.transform.localEulerAngles.x, prevCam.y, prevCam.z);
+            
 
             // rotate the player left and right
             transform.Rotate(Vector3.up * _yRotation);
+            headTracker.transform.Rotate(Vector3.up * _yRotation);
+            
+            usingInput = true;
         }
         
-        if (_vrEnabled)
+
+        if (_vrEnabled && !usingInput)
         {
             var prev = transform.localEulerAngles;
             var prevCam = cam.transform.localEulerAngles;
