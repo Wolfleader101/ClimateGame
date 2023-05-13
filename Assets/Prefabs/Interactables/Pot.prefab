@@ -5346,7 +5346,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 301d936263053894fa6151a605eb3079, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dirtFillPercent: 0
+  dirtFill: 0
+  plantFill: 0
+  dirtMaterial: {fileID: 0}
+  plantMaterial: {fileID: 0}
+  usingDirt: 0
 --- !u!114 &5280336956938081574
 MonoBehaviour:
   m_ObjectHideFlags: 0
