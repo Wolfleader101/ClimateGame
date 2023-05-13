@@ -7,130 +7,44 @@ using UnityEngine.XR;
 using UnityEngine.XR.Management;
 using TrackedPoseDriver = UnityEngine.SpatialTracking.TrackedPoseDriver;
 
-[RequireComponent(typeof(CharacterController))]
+[RequireComponent(typeof(PlayerInput))]
 public class InputHandler : MonoBehaviour
 {
     [SerializeField] private PlayerInput playerInput;
-    [SerializeField] private BaseCharacter character;
-    [SerializeField] private float rotationSpeed = 1f;
-    [SerializeField] private CharacterController controller;
-    [SerializeField] private GameObject cam;
-    [SerializeField] private GameObject headTracker;
 
+    public Vector2 Move { get; private set; }
+    public Vector2 Look { get; private set; }
+    
+    public bool Jump { get; private set; }
+    
+    public bool Interact { get; private set; }
+    
+    public bool VrEnabled { get; private set; }
 
     private InputAction _moveAction;
     private InputAction _lookAction;
     private InputAction _interactAction;
-
-
-    private float _xRotation = 0;
-    private float _yRotation = 0;
-
-    private float _speed;
-    private float _verticalVelocity;
-
-    private bool _vrEnabled = false;
-
+    private InputAction _jumpAction;
+    
     private void Awake()
     {
         _moveAction = playerInput.actions["Move"];
         _lookAction = playerInput.actions["Look"];
         _interactAction = playerInput.actions["Interact"];
+        _jumpAction = playerInput.actions["Jump"];
         Cursor.lockState = CursorLockMode.Locked;
-
-        if (!controller) controller = gameObject.GetComponent<CharacterController>();
+        VrEnabled = XRSettings.enabled && XRSettings.isDeviceActive;
     }
+
+
 
     // Update is called once per frame
     void Update()
     {
-        _vrEnabled = XRSettings.enabled && XRSettings.isDeviceActive;
-        Jump();
-
-        // ground check
-
-        Move();
-
-    }
-
-    private void LateUpdate()
-    {
-        Look();
-    }
-
-    private void Jump()
-    {
-        // _velocity.y += (character.GravityScaleMultiplier * gravityScale) * Time.deltaTime;
-        // characterController.Move(_velocity * Time.deltaTime);
-    }
-
-    private void Move()
-    {
-        var move = _moveAction.ReadValue<Vector2>();
-        
-        float targetSpeed = character.MovementSpeed;
-
-        if (move == Vector2.zero) targetSpeed = 0.0f;
-
-
-        _speed = targetSpeed;
-        
-        // normalise input direction
-        Vector3 inputDirection = new Vector3(move.x, 0.0f, move.y).normalized;
-
-        if (move != Vector2.zero)
-        {
-            // move
-            inputDirection = transform.right * move.x + transform.forward * move.y;
-        }
-        
-        
-
-        // move the player
-        // controller.Move(inputDirection.normalized * (_speed * Time.deltaTime) +
-        //                 new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
-        controller.Move(inputDirection * (_speed * Time.deltaTime));
-
-    }
-
-    private void Look()
-    {
-        var look = _lookAction.ReadValue<Vector2>();
-
-        var usingInput = false;
-
-        if (look.sqrMagnitude >= 0.01f)
-        {
-            //Don't multiply mouse input by Time.deltaTime
-            float deltaTimeMultiplier = _vrEnabled ? 1.5f : 1.0f;
-            
-            _xRotation += look.y * rotationSpeed * deltaTimeMultiplier;
-            _yRotation = look.x * rotationSpeed * deltaTimeMultiplier;
-
-            _xRotation = Mathf.Clamp(_xRotation, -90f, 90f);
-
-            
-            // rotate camera up and down
-            var prevCam = cam.transform.localEulerAngles;
-            cam.transform.localEulerAngles =
-                new Vector3(headTracker.transform.localEulerAngles.x, prevCam.y, prevCam.z);
-            
-
-            // rotate the player left and right
-            transform.Rotate(Vector3.up * _yRotation);
-            headTracker.transform.Rotate(Vector3.up * _yRotation);
-            
-            usingInput = true;
-        }
-        
-
-        if (_vrEnabled && !usingInput)
-        {
-            var prev = transform.localEulerAngles;
-            var prevCam = cam.transform.localEulerAngles;
-            cam.transform.localEulerAngles =
-                new Vector3(headTracker.transform.localEulerAngles.x, prevCam.y, prevCam.z);
-            transform.localEulerAngles = new Vector3( prev.x, headTracker.transform.localEulerAngles.y, prev.z);
-        }
+        VrEnabled = XRSettings.enabled && XRSettings.isDeviceActive;
+        Move = _moveAction.ReadValue<Vector2>();
+        Look = _lookAction.ReadValue<Vector2>();
+        Jump = _jumpAction.ReadValue<float>() > 0.0f;
+        Interact = _interactAction.ReadValue<float>() > 0.0f;
     }
 }

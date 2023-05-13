@@ -20,7 +20,7 @@
                     "id": "3a5287e8-fc41-4119-b233-8faa8d97fd77",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "MultiTap(tapDelay=0.7)",
+                    "interactions": "",
                     "initialStateCheck": false
                 },
                 {
@@ -36,10 +36,10 @@
                     "name": "Interact",
                     "type": "PassThrough",
                     "id": "c59cb918-e385-4e77-8362-93982f8e264e",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "Press(behavior=1)",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Menu",
@@ -109,41 +109,8 @@
                 },
                 {
                     "name": "",
-                    "id": "e5d41aa6-635d-4be6-8afe-f3261ae41af9",
-                    "path": "<XRController>{LeftHand}/trackpad",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "1b12a628-5ba4-4b3d-84d5-20b6a51fb30e",
-                    "path": "<OculusTouchController>{LeftHand}/thumbstick",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "45e034b6-be1b-469e-a9e7-b39b5d387f85",
                     "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Jump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "c8d71271-da91-441e-a733-b31faf9f939e",
-                    "path": "<OculusTouchController>{RightHand}/primaryButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -164,28 +131,6 @@
                 },
                 {
                     "name": "",
-                    "id": "bd6528a4-7349-4cd7-a8a7-0da4fc09d200",
-                    "path": "<XRController>{RightHand}/trackpad",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Look",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "626b8f31-4304-496c-8f54-ef0d0aa1a9c0",
-                    "path": "<XRController>{RightHand}/thumbstick",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Look",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "8cad41a8-9213-4557-a0c3-f2897b523062",
                     "path": "<Keyboard>/e",
                     "interactions": "",
@@ -199,17 +144,6 @@
                     "name": "",
                     "id": "586aa2d1-7fb7-4702-95f9-d7b4c1491be4",
                     "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Interact",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "3816f473-8600-475d-856e-109de7ad4602",
-                    "path": "<XRController>{RightHand}/triggerPressed",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
