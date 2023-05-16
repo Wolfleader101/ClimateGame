@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Prefabs/Canvas.prefab.meta
+guid: 115d1e421e474c042b4af858386627d2
+PrefabImporter:
+  externalObjects: {}
+========
+guid: 7d445490de4afd14a8e57f7f48d93cd9
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+>>>>>>>> origin/Adding-Interactables:Assets/Materials/OpenGameArt - tiko479/Metal.mat.meta
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

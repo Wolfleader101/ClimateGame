@@ -11,6 +11,10 @@ public class Aircon : MonoBehaviour
     [SerializeField] private TextMeshProUGUI text;
 
     [SerializeField] private int _value;
+
+    public int Temp => _value;
+    
+    public event Action<int> OnAirconValueChange;
     
     private int _oldValue;
     private static readonly int _targetValue = 24;
@@ -45,7 +49,9 @@ public class Aircon : MonoBehaviour
 
     public void ChangeValue(int x)
     {
+        if (_targetHit) return;
         _value += x;
+        OnAirconValueChange(_value);
     }
     
 }
