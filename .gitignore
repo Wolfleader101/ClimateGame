@@ -38,6 +38,7 @@
 # Recordings can get excessive in size
 /[Rr]ecordings/
 
+
 # Visual Studio cache directory
 .vs/
 
