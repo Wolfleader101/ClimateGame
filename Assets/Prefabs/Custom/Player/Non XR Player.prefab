@@ -98,7 +98,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50f97f16618a69543814eb00acfb1ac9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputHandler: {fileID: 0}
+  inputHandler: {fileID: 3422642689223460479, guid: 2e39e7265c059b44d92532e59e12f99a,
+    type: 3}
   cam: {fileID: 2672777389305504232}
   characterController: {fileID: 2672777388653328982}
   character: {fileID: 11400000, guid: d669e20a65e0ffe44b274e4c6949573d, type: 2}
