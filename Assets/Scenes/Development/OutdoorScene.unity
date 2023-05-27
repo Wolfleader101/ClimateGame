@@ -24993,6 +24993,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2672777388653328985, guid: 58b4871ebfa903f42a3e593ad1fc10eb,
         type: 3}
+      propertyPath: mouseSens
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2672777388653328985, guid: 58b4871ebfa903f42a3e593ad1fc10eb,
+        type: 3}
       propertyPath: inputHandler
       value: 
       objectReference: {fileID: 2086047373}
