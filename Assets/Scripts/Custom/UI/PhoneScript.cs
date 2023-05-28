@@ -18,7 +18,7 @@ public class PhoneScript : MonoBehaviour
     {
         eulerRotation = LH_controller.localEulerAngles;
 
-        if (eulerRotation.z <= minZ && eulerRotation.z >= maxZ)
+        if (eulerRotation.z >= minZ && eulerRotation.z <= maxZ)
             canvas.gameObject.SetActive(true);
         else
             canvas.gameObject.SetActive(false);

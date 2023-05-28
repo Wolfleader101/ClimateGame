@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -820,6 +820,29 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &1636612397 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8051575880694641287, guid: fa5d77d7e2c4d6a4d8ff07dac3a46b3c,
+    type: 3}
+  m_PrefabInstance: {fileID: 8050983575596853405}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1636612399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1636612397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8854f00c4e42c0f4884a1c48cb72c0b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LH_controller: {fileID: 48226422}
+  eulerRotation: {x: 0, y: 0, z: 0}
+  canvas: {fileID: 772058382}
+  minZ: 215
+  maxZ: 310
 --- !u!1 &2075220243 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2672777388653328978, guid: 58b4871ebfa903f42a3e593ad1fc10eb,
@@ -1150,6 +1173,16 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 938433027601530646, guid: fa5d77d7e2c4d6a4d8ff07dac3a46b3c,
         type: 3}
+      propertyPath: maxZ
+      value: -35
+      objectReference: {fileID: 0}
+    - target: {fileID: 938433027601530646, guid: fa5d77d7e2c4d6a4d8ff07dac3a46b3c,
+        type: 3}
+      propertyPath: minZ
+      value: -110
+      objectReference: {fileID: 0}
+    - target: {fileID: 938433027601530646, guid: fa5d77d7e2c4d6a4d8ff07dac3a46b3c,
+        type: 3}
       propertyPath: canvas
       value: 
       objectReference: {fileID: 772058382}
@@ -1239,5 +1272,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: XR Player
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 938433027601530646, guid: fa5d77d7e2c4d6a4d8ff07dac3a46b3c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: fa5d77d7e2c4d6a4d8ff07dac3a46b3c, type: 3}
