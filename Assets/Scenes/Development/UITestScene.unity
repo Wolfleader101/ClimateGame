@@ -1277,6 +1277,21 @@ PrefabInstance:
       propertyPath: m_InteractionManager
       value: 
       objectReference: {fileID: 1466553227}
+    - target: {fileID: 8050983573693430749, guid: fa5d77d7e2c4d6a4d8ff07dac3a46b3c,
+        type: 3}
+      propertyPath: m_RaycastMask.m_Bits
+      value: 96
+      objectReference: {fileID: 0}
+    - target: {fileID: 8050983575266482131, guid: fa5d77d7e2c4d6a4d8ff07dac3a46b3c,
+        type: 3}
+      propertyPath: m_InteractionManager
+      value: 
+      objectReference: {fileID: 1466553227}
+    - target: {fileID: 8050983575266482131, guid: fa5d77d7e2c4d6a4d8ff07dac3a46b3c,
+        type: 3}
+      propertyPath: m_RaycastMask.m_Bits
+      value: 96
+      objectReference: {fileID: 0}
     - target: {fileID: 8050983575573860057, guid: fa5d77d7e2c4d6a4d8ff07dac3a46b3c,
         type: 3}
       propertyPath: m_RootOrder
