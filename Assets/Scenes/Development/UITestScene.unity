@@ -129,6 +129,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 8050983575596853405}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &48226422 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8050983573693430689, guid: fa5d77d7e2c4d6a4d8ff07dac3a46b3c,
+    type: 3}
+  m_PrefabInstance: {fileID: 8050983575596853405}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &235950105
 GameObject:
   m_ObjectHideFlags: 0
@@ -1136,6 +1142,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 938433027601530646, guid: fa5d77d7e2c4d6a4d8ff07dac3a46b3c,
+        type: 3}
+      propertyPath: VRInput
+      value: 
+      objectReference: {fileID: -944628639613478452, guid: c348712bda248c246b8c49b3db54643f,
+        type: 3}
+    - target: {fileID: 938433027601530646, guid: fa5d77d7e2c4d6a4d8ff07dac3a46b3c,
+        type: 3}
+      propertyPath: LH_controller
+      value: 
+      objectReference: {fileID: 48226422}
+    - target: {fileID: 938433027601530646, guid: fa5d77d7e2c4d6a4d8ff07dac3a46b3c,
+        type: 3}
+      propertyPath: lh_controller
+      value: 
+      objectReference: {fileID: 48226422}
     - target: {fileID: 8050983573693430749, guid: fa5d77d7e2c4d6a4d8ff07dac3a46b3c,
         type: 3}
       propertyPath: m_InteractionManager

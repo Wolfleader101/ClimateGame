@@ -6,12 +6,11 @@ using System.Collections.Generic;
 
 public class PhoneScript : MonoBehaviour
 {
-    [SerializeField] private InputActionAsset VRInput;
-    private InputAction input;
+    [SerializeField] private Transform LH_controller;
 
-    private List<Image> images;
+    [SerializeField] private List<Image> images;
 
-    [SerializeField] private Quaternion rotation;
+    [SerializeField] private Vector3 eulerRotation;
 
     private void Start()
     {
@@ -22,14 +21,12 @@ public class PhoneScript : MonoBehaviour
                 images.Add(image);
             }
         }
-
-        input = VRInput.FindActionMap("XRI LeftHand").FindAction("Rotation");
     }
 
     private void Update()
     {
-        rotation = input.ReadValue<Quaternion>();
+        eulerRotation = LH_controller.localEulerAngles;
 
-        print(rotation);
+        print(eulerRotation);
     }
 }
