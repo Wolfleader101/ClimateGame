@@ -21,8 +21,10 @@ public class NotepadScript : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-            animator.SetBool("opened", opened = !opened);
+        if (Input.GetKey(KeyCode.Tab))
+            animator.SetBool("opened", opened = true);
+        else if (Input.GetKeyUp(KeyCode.Tab))
+            animator.SetBool("opened", opened = false);
 
         if (Input.GetKeyDown(KeyCode.T))
             task_1_t.text = "<s>EXAMPLE TASK 1:</s>";
