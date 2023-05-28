@@ -454,6 +454,12 @@ MonoBehaviour:
   m_VerticalAxis: Vertical
   m_SubmitButton: Submit
   m_CancelButton: Cancel
+--- !u!223 &772058382 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 8050983573867575823, guid: fa5d77d7e2c4d6a4d8ff07dac3a46b3c,
+    type: 3}
+  m_PrefabInstance: {fileID: 8050983575596853405}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &787943541
 GameObject:
   m_ObjectHideFlags: 0
@@ -1142,6 +1148,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 938433027601530646, guid: fa5d77d7e2c4d6a4d8ff07dac3a46b3c,
+        type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 772058382}
     - target: {fileID: 938433027601530646, guid: fa5d77d7e2c4d6a4d8ff07dac3a46b3c,
         type: 3}
       propertyPath: VRInput
