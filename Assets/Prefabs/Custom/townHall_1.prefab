@@ -532,6 +532,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 881888790290836238}
+  - component: {fileID: 7051798036105165164}
   m_Layer: 0
   m_Name: townHall_1
   m_TagString: Untagged
@@ -561,6 +562,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 270, z: 0}
+--- !u!65 &7051798036105165164
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 537838766608314804}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2515.2654, y: 1104.0142, z: 1944.8364}
+  m_Center: {x: -4.494095, y: 544.33905, z: -4.7029495}
 --- !u!1 &573528285667418650
 GameObject:
   m_ObjectHideFlags: 0
