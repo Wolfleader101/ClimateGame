@@ -5348,8 +5348,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dirtFill: 0
   plantFill: 0
-  dirtMaterial: {fileID: 0}
-  plantMaterial: {fileID: 0}
+  dirtMaterial: {fileID: 2100000, guid: 883da1c914fe24a44bee59054d91dcf9, type: 2}
+  plantMaterial: {fileID: 2100000, guid: 0f8a65adce94697459f4de0c5e1e09f8, type: 2}
   usingDirt: 0
 --- !u!114 &5280336956938081574
 MonoBehaviour:

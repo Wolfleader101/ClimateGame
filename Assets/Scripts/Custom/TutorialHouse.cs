@@ -71,16 +71,23 @@ public class TutorialHouse : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        airconUI.text = _airconTemp + "°C";
-        binUI.text = _rubbishCollected + "/" + _bins.Count;
-        plantUI.text = _plantsGrown + "/" + _plants.Count;
+        if(airconUI)
+            airconUI.text = _airconTemp + "°C";
+        
+        if(binUI)
+            binUI.text = _rubbishCollected + "/" + _bins.Count;
+        
+        if(plantUI)
+            plantUI.text = _plantsGrown + "/" + _plants.Count;
         
         foreach (var sw in _switches)
         {
             _lightsOff += sw.LightOn ? 0 : 1;
         }
         
-        lightUI.text = _lightsOff + "/" + _switches.Count;
+        if(lightUI)
+            lightUI.text = _lightsOff + "/" + _switches.Count;
+        
         _lightsOff = 0;
     }
 
