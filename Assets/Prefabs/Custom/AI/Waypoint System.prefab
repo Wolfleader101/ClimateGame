@@ -81,11 +81,6 @@ MonoBehaviour:
   size: 0.5
   waypoints:
   - {fileID: 4046813887836175440}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 8307946848963260912}
   - {fileID: 7162487239284945375}
 --- !u!1 &4046813887836175447
