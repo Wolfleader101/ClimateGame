@@ -5916,6 +5916,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4597532779249425140}
+  - component: {fileID: 8291402350665075008}
   m_Layer: 0
   m_Name: houseGeo_1a
   m_TagString: Untagged
@@ -5987,6 +5988,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &8291402350665075008
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3784825892527669326}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1077.2089, y: 437.6581, z: 1386.23}
+  m_Center: {x: -382.04208, y: 199.49565, z: 0.147295}
 --- !u!1 &3811550855288010737
 GameObject:
   m_ObjectHideFlags: 0
@@ -16834,7 +16848,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: RecyclingBin
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 280321802860673288, guid: 144dfa90c5c306c4e819f7eba61327ef, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 144dfa90c5c306c4e819f7eba61327ef, type: 3}
 --- !u!4 &726916053255834837 stripped
 Transform:
