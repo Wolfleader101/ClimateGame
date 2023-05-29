@@ -14,13 +14,27 @@ public class FollowWaypoint : MonoBehaviour
     private NavMeshAgent agent;
     private Animator animator;
 
+    [Range(0.0f, 5.0f), SerializeField]
+    private float minWaitTime = 1.0f;
+    [Range(0.0f, 5.0f), SerializeField]
+    private float maxWaitTime = 2.0f;
+
     private int index = 1;
 
     private bool reverse = false;
     private bool end = false;
     private bool moving = true;
 
-    private void Awake() => waypoints = WPS.waypoints.ToArray();
+    private bool valid = false;
+
+    private void Awake()
+    {
+        if(WPS != null) 
+        {
+            valid = true; waypoints = WPS.waypoints.ToArray();
+        }
+        else valid = false;
+    }
 
     private void Start()
     {
@@ -33,13 +47,16 @@ public class FollowWaypoint : MonoBehaviour
         if (animator == null)
             Debug.LogError("No attached Animator found!");
 
-        if (waypoints.Length > 0 && waypoints[0] != null)
+        if (valid)
         {
-            // Set target to the first element in waypoints
-            target = waypoints[index];
+            if (waypoints.Length > 0 && waypoints[0] != null)
+            {
+                // Set target to the first element in waypoints
+                target = waypoints[index];
 
-            // Move NavMeshAgent towards target
-            agent.SetDestination(target.position);
+                // Move NavMeshAgent towards target
+                agent.SetDestination(target.position);
+            }
         }
     }
 
@@ -51,7 +68,7 @@ public class FollowWaypoint : MonoBehaviour
         if (index < waypoints.Length && !reverse)
         {
             if (index == 1)
-                yield return new WaitForSeconds(Random.Range(3.0f, 5.0f));
+                yield return new WaitForSeconds(Random.Range(minWaitTime, maxWaitTime));
 
             target = waypoints[index];   
         }
@@ -60,7 +77,7 @@ public class FollowWaypoint : MonoBehaviour
             if (!end)
             {
                 end = true;
-                yield return new WaitForSeconds(Random.Range(3.0f, 5.0f));
+                yield return new WaitForSeconds(Random.Range(minWaitTime, maxWaitTime));
             }
 
             index--;
@@ -81,7 +98,8 @@ public class FollowWaypoint : MonoBehaviour
 
     private void Update()
     {
-        animator.SetFloat("Blend", agent.velocity.magnitude / agent.speed);
+        var blendAmount = agent.velocity.magnitude / agent.speed;
+        animator.SetFloat("Blend", Mathf.Clamp(blendAmount, 0.0f, 0.5f));
 
         if (target != null)
         {
