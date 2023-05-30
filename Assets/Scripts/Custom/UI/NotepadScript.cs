@@ -9,21 +9,17 @@ public class NotepadScript : MonoBehaviour
     private AudioSource source;
     private AudioClip clip;
 
-    [SerializeField] private TMP_Text light_task;
-    [SerializeField] private TMP_Text aircon_task;
-    [SerializeField] private TMP_Text plant_task;
-    [SerializeField] private TMP_Text recycle_task;
-    
+    [SerializeField] private TextMeshProUGUI lightUI;
+    [SerializeField] private TextMeshProUGUI plantUI;
+    [SerializeField] private TextMeshProUGUI airconUI;
+    [SerializeField] private TextMeshProUGUI binUI;
 
+    public House ActiveHouse { get; set; }
+    
     private void Awake()
     {
         animator = GetComponent<Animator>();
         source = GetComponent<AudioSource>();
-    }
-
-    private void Start()
-    {
-
     }
 
     private void Update()
@@ -33,10 +29,18 @@ public class NotepadScript : MonoBehaviour
         else if (Input.GetKeyUp(KeyCode.Tab))
             animator.SetBool("opened", opened = false);
 
-        if (Input.GetKeyDown(KeyCode.T) && opened)
-        {
-            OnStrikethrough();
-        }
+        if(airconUI)
+            airconUI.text = "Aircon Temp: " + ActiveHouse.AirconTemp + "°C";
+        
+        if(binUI)
+            binUI.text = "Rubbish Collected " +  ActiveHouse.RubbishCollected + "/" + ActiveHouse.TotalRubbish;
+        
+        if(plantUI)
+            plantUI.text = "Plants Grown: " + ActiveHouse.PlantsGrown + "/" + ActiveHouse.TotalPlants;
+        
+        if(lightUI)
+            lightUI.text = "Lights Turned Off: " + ActiveHouse.LightsOff + "/" + ActiveHouse.TotalSwitches;
+
     }
 
     private void OnStrikethrough()

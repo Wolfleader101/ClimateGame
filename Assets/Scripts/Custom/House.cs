@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -5,9 +6,12 @@ using UnityEngine;
 
 public class House : MonoBehaviour
 {
+    [SerializeField] private Collider _collider;
+    
     private List<Interactable> _houseInteractables = new List<Interactable>();
 
     public List<Interactable> HouseInteractables => _houseInteractables;
+    
     
     
     // keep track of lights
@@ -79,6 +83,9 @@ public class House : MonoBehaviour
             .ToList();
         
         _plants.ForEach(plant => plant.OnGrown += OnGrow);
+
+
+        _collider = gameObject.GetComponent<Collider>();
     }
 
     private void AddInteractablesFromTransform(Transform trans)
@@ -109,7 +116,12 @@ public class House : MonoBehaviour
         }
         
     }
-    
+
+    private void OnTriggerEnter(Collider other)
+    {
+        
+    }
+
     void OnBinScoreIncrease()
     {
         _rubbishCollected++;
