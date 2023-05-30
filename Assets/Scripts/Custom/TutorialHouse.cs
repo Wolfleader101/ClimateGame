@@ -35,7 +35,6 @@ public class TutorialHouse : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log(house.HouseInteractables.Count);
         _bins = house.HouseInteractables
             .Select(interactable => interactable.GetComponent<Recyclebin>())
             .Where(bin => bin != null)

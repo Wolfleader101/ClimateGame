@@ -1,11 +1,10 @@
-﻿using System;
-using UnityEngine;
-using UnityEngine.InputSystem;
+﻿using UnityEngine;
 using UnityEngine.XR;
 
-[RequireComponent(typeof(PlayerInput))]
+
 public class InteractableHandler : MonoBehaviour
 {
+    [SerializeField] private InputHandler inputHandler;
     [SerializeField] private GameObject vrLeftHand;
     [SerializeField] private GameObject vrRightHand;
 
@@ -14,6 +13,8 @@ public class InteractableHandler : MonoBehaviour
     private Interactable _heldInteractable;
 
     private bool _vrEnabled;
+    
+    private bool _hasInteracted = false;
 
     private void Start()
     {
@@ -24,16 +25,28 @@ public class InteractableHandler : MonoBehaviour
         vrRightHand.SetActive(_vrEnabled);
     }
 
+    private void Update()
+    {
+        var interact = inputHandler.Interact;
+        // Only call OnInteract if it hasn't been called yet
+        if(interact && !_hasInteracted) 
+        {
+            OnInteract();
+            _hasInteracted = true;
+        }else if(!interact) 
+        {
+            _hasInteracted = false;
+        }
+    }
+
     public void OnVRInteract(Interactable interactable)
     {
         if (interactable.Holdable) _heldInteractable = interactable;
         interactable.OnInteract(this);
     }
     
-    public void OnInteract(InputAction.CallbackContext context)
+    public void OnInteract()
     {
-        if (!context.performed) return;
-
         if (_heldInteractable)
         {
             _heldInteractable.OnInteract(this);
@@ -41,16 +54,7 @@ public class InteractableHandler : MonoBehaviour
 
             return;
         }
-
-
-        // if (_vrEnabled)
-        // {
-        //     if (interactable.Holdable) _heldInteractable = interactable;
-        //     interactable.OnInteract(this);
-        //     
-        //     return;
-        // }
-
+        
         if (_vrEnabled) return;
 
         var ray = _camera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));

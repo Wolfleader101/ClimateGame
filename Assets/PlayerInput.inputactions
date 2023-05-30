@@ -36,9 +36,9 @@
                     "name": "Interact",
                     "type": "PassThrough",
                     "id": "c59cb918-e385-4e77-8362-93982f8e264e",
-                    "expectedControlType": "",
+                    "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Press(behavior=1)",
+                    "interactions": "",
                     "initialStateCheck": true
                 },
                 {
