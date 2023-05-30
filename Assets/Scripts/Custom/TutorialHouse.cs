@@ -30,6 +30,7 @@ public class TutorialHouse : MonoBehaviour
     // keep track of recycle bins
     private List<Recyclebin> _bins;
     private int _rubbishCollected;
+    private int _totalRubbish;
 
 
 
@@ -39,8 +40,11 @@ public class TutorialHouse : MonoBehaviour
             .Select(interactable => interactable.GetComponent<Recyclebin>())
             .Where(bin => bin != null)
             .ToList();
-            
+        
         _bins.ForEach(bin => bin.OnRubbishIncrement += OnBinScoreIncrease);
+
+        _totalRubbish = house.HouseInteractables
+            .Select(interactable => interactable.GetComponent<RecyclableRubbish>()).Count(rubbish => rubbish != null);
         
         _aircons = house.HouseInteractables
             .Select(interactable => interactable.GetComponent<Aircon>())
@@ -74,7 +78,7 @@ public class TutorialHouse : MonoBehaviour
             airconUI.text = _airconTemp + "°C";
         
         if(binUI)
-            binUI.text = _rubbishCollected + "/" + _bins.Count;
+            binUI.text = _rubbishCollected + "/" + _totalRubbish;
         
         if(plantUI)
             plantUI.text = _plantsGrown + "/" + _plants.Count;
