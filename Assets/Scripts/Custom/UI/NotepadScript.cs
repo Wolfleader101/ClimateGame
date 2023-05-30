@@ -9,8 +9,11 @@ public class NotepadScript : MonoBehaviour
     private AudioSource source;
     private AudioClip clip;
 
-    [SerializeField] private TMP_Text task_1_t;
-    [SerializeField] private TMP_Text task_2_t;
+    [SerializeField] private TMP_Text light_task;
+    [SerializeField] private TMP_Text aircon_task;
+    [SerializeField] private TMP_Text plant_task;
+    [SerializeField] private TMP_Text recycle_task;
+    
 
     private void Awake()
     {
@@ -32,7 +35,6 @@ public class NotepadScript : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.T) && opened)
         {
-            task_1_t.text = "<s>EXAMPLE TASK 1:</s>";
             OnStrikethrough();
         }
     }
