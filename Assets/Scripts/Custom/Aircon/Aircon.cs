@@ -58,7 +58,7 @@ public class Aircon : MonoBehaviour
             return;
         }
         _value += x;
-        OnAirconValueChange(_value);
+        if (OnAirconValueChange != null) OnAirconValueChange(_value);
     }
     
 }

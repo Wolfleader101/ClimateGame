@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class House : MonoBehaviour
 {
+    [SerializeField] private GameObject fogToUnlock;
     [SerializeField] private Collider _collider;
     
     private List<Interactable> _houseInteractables = new List<Interactable>();
@@ -122,6 +123,12 @@ public class House : MonoBehaviour
         {
             AirconTargetHit = ac.TargetHit;
         });
+
+
+        if (fogToUnlock != null && AirconTargetHit && _lightsOff == _switches.Count && _plantsGrown == _plants.Count && _rubbishCollected == _totalRubbish)
+        {
+            fogToUnlock.SetActive(false);
+        }
 
         
     }

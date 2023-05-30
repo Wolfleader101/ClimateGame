@@ -120,7 +120,7 @@ Material:
     - _DstBlend: 0
     - _EnvironmentReflections: 1
     - _Fill: 1.8
-    - _FillAmount: 0
+    - _FillAmount: 0.9610096
     - _FillMax: 0.12
     - _FillMin: -0.42
     - _GlossMapScale: 0

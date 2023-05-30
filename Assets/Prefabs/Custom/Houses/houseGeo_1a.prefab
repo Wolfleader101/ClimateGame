@@ -5972,6 +5972,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 449d39a3d786103419607439defe9d6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fogToUnlock: {fileID: 0}
+  _collider: {fileID: 0}
 --- !u!1 &3811550855288010737
 GameObject:
   m_ObjectHideFlags: 0
@@ -14753,6 +14755,25 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1690197895148715907}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &956181750824919195 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1887501081346498328, guid: 1a51bc6954c590f45a22376b0474b667,
+    type: 3}
+  m_PrefabInstance: {fileID: 1690197895148715907}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2024627809702815089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 956181750824919195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0771e30d465ab5748ab49162b6db0f7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isHoldable: 0
 --- !u!1001 &1756588665642723840
 PrefabInstance:
   m_ObjectHideFlags: 0
