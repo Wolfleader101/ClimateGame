@@ -41,7 +41,6 @@ public class InteractableHandler : MonoBehaviour
 
     public void OnVRInteract(Interactable interactable)
     {
-        if (!_vrEnabled) return;
         if (interactable.Holdable) return;
 
         _hasInteracted = true;
