@@ -16,6 +16,8 @@ public class InputHandler : MonoBehaviour
     public Vector2 Look { get; private set; }
     
     public bool Jump { get; private set; }
+
+    public bool Menu { get; private set; }
     
     public bool Interact { get; private set; }
     
@@ -25,6 +27,7 @@ public class InputHandler : MonoBehaviour
     private InputAction _lookAction;
     private InputAction _interactAction;
     private InputAction _jumpAction;
+    private InputAction _menuAction;
     
     private void Awake()
     {
@@ -32,6 +35,7 @@ public class InputHandler : MonoBehaviour
         _lookAction = playerInput.actions["Look"];
         _interactAction = playerInput.actions["Interact"];
         _jumpAction = playerInput.actions["Jump"];
+        _menuAction = playerInput.actions["Menu"];
         Cursor.lockState = CursorLockMode.Locked;
         VrEnabled = XRSettings.enabled && XRSettings.isDeviceActive;
     }
@@ -45,6 +49,7 @@ public class InputHandler : MonoBehaviour
         Move = _moveAction.ReadValue<Vector2>();
         Look = _lookAction.ReadValue<Vector2>();
         Jump = _jumpAction.ReadValue<float>() > 0.0f;
+        Menu = _menuAction.ReadValue<float>() > 0.0f;
         Interact = _interactAction.ReadValue<float>() > 0.0f;
     }
 }
