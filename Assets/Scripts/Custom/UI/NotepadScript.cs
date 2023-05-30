@@ -28,6 +28,22 @@ public class NotepadScript : MonoBehaviour
             animator.SetBool("opened", opened = true);
         else if (Input.GetKeyUp(KeyCode.Tab))
             animator.SetBool("opened", opened = false);
+        
+        if (ActiveHouse == null)
+        {
+            if (airconUI)
+                airconUI.text = "Not in a House";
+
+            if (binUI)
+                binUI.text = "";
+
+            if (plantUI)
+                plantUI.text = "";
+
+            if (lightUI)
+                lightUI.text = "";
+            return;
+        }
 
         if(airconUI)
             airconUI.text = "Aircon Temp: " + ActiveHouse.AirconTemp + "°C";

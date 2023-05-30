@@ -15,7 +15,6 @@ public class Aircon : MonoBehaviour
     [SerializeField] private Outline _outline;
 
     public int Temp => _value;
-    
     public event Action<int> OnAirconValueChange;
     
     private int _oldValue;
@@ -24,6 +23,7 @@ public class Aircon : MonoBehaviour
     private static readonly string _appendix = "°C";
 
     private bool _targetHit = false;
+    public bool TargetHit => _targetHit;
     
     // Start is called before the first frame update
     void Start()

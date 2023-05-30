@@ -24,4 +24,13 @@ public class PlayerCurrentHouse : MonoBehaviour
         if (notepad != null) notepad.ActiveHouse = house;
         if (phoneScript != null) phoneScript.ActiveHouse = house;
     }
+
+    private void OnTriggerExit(Collider other)
+    {
+        var house = other.GetComponent<House>();
+        if (house == null) return;
+        
+        if (notepad != null) notepad.ActiveHouse = null;
+        if (phoneScript != null) phoneScript.ActiveHouse = null;
+    }
 }

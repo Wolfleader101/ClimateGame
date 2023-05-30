@@ -40,6 +40,8 @@ public class House : MonoBehaviour
     public int RubbishCollected => _rubbishCollected;
     public int TotalRubbish => _totalRubbish;
     
+    public bool AirconTargetHit { get; set; }
+    
     
 
     
@@ -69,6 +71,7 @@ public class House : MonoBehaviour
         {
             ac.OnAirconValueChange += OnAirconChange;
             _airconTemp = ac.Temp;
+            AirconTargetHit = ac.TargetHit;
         });
 
         _switches = _houseInteractables
@@ -115,10 +118,11 @@ public class House : MonoBehaviour
             _lightsOff += sw.LightOn ? 0 : 1;
         }
         
-    }
+        _aircons.ForEach(ac =>
+        {
+            AirconTargetHit = ac.TargetHit;
+        });
 
-    private void OnTriggerEnter(Collider other)
-    {
         
     }
 

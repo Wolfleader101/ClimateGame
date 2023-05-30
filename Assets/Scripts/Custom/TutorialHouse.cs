@@ -17,18 +17,18 @@ public class TutorialHouse : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(airconUI)
-            airconUI.text = "Aircon Temp: " + house.AirconTemp + "°C";
-        
-        if(binUI)
-            binUI.text = "Rubbish Collected " +  house.RubbishCollected + "/" + house.TotalRubbish;
-        
-        if(plantUI)
-            plantUI.text = "Plants Grown: " + house.PlantsGrown + "/" + house.TotalPlants;
-        
-        if(lightUI)
-            lightUI.text = "Lights Turned Off: " + house.LightsOff + "/" + house.TotalSwitches;
-        
+        // if(airconUI)
+        //     airconUI.text = "Aircon Temp: " + house.AirconTemp + "°C";
+        //
+        // if(binUI)
+        //     binUI.text = "Rubbish Collected " +  house.RubbishCollected + "/" + house.TotalRubbish;
+        //
+        // if(plantUI)
+        //     plantUI.text = "Plants Grown: " + house.PlantsGrown + "/" + house.TotalPlants;
+        //
+        // if(lightUI)
+        //     lightUI.text = "Lights Turned Off: " + house.LightsOff + "/" + house.TotalSwitches;
+        //
     }
 
 

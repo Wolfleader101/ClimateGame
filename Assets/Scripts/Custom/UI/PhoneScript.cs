@@ -33,6 +33,22 @@ public class PhoneScript : MonoBehaviour
             canvas.gameObject.SetActive(true);
         else
             canvas.gameObject.SetActive(false);
+
+        if (ActiveHouse == null)
+        {
+            if (airconUI)
+                airconUI.text = "Not in a House";
+
+            if (binUI)
+                binUI.text = "";
+
+            if (plantUI)
+                plantUI.text = "";
+
+            if (lightUI)
+                lightUI.text = "";
+            return;
+        }
         
         if(airconUI)
             airconUI.text = "Aircon Temp: " + ActiveHouse.AirconTemp + "°C";
