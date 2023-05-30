@@ -42,9 +42,9 @@ public class House : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        var interactablesParent = transform.Find("Interactables");
+        // var interactablesParent = transform.Find("Interactables");
 
-        AddInteractablesFromTransform(interactablesParent != null ? interactablesParent : transform);
+        AddInteractablesFromTransform(transform);
         
         _bins = _houseInteractables
             .Select(interactable => interactable.GetComponent<Recyclebin>())
@@ -86,21 +86,28 @@ public class House : MonoBehaviour
         foreach (Transform child in trans)
         {
             var interactable = child.GetComponent<Interactable>();
-            if (interactable == null) continue;
-
-            _houseInteractables.Add(interactable);
+            if (interactable != null)
+            {
+                _houseInteractables.Add(interactable);
+            }
+            // If this child has its own children, recursively call this function
+            if (child.childCount > 0)
+            {
+                AddInteractablesFromTransform(child);
+            }
         }
     }
 
     // Update is called once per frame
     void Update()
     {
+        _lightsOff = 0;
+
         foreach (var sw in _switches)
         {
             _lightsOff += sw.LightOn ? 0 : 1;
         }
         
-        _lightsOff = 0;
     }
     
     void OnBinScoreIncrease()

@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Outline), typeof(Interactable))]
+[RequireComponent(typeof(Interactable))]
 public class LightSwitch : MonoBehaviour
 {
     [SerializeField] private bool lightOn = true; //A boolean to turn lights on or off
@@ -71,7 +71,7 @@ public class LightSwitch : MonoBehaviour
                 l.intensity = 0.0f;
             }
 
-            _outline.enabled = false;
+            if(_outline != null) _outline.enabled = false;
             lightOn = false;
         }
         else
@@ -87,7 +87,7 @@ public class LightSwitch : MonoBehaviour
             }
 
             lightOn = true;
-            _outline.enabled = true;
+            if(_outline != null) _outline.enabled = true;
         }
     }
 }

@@ -31,8 +31,8 @@ public class InteractableHandler : MonoBehaviour
         // Only call OnInteract if it hasn't been called yet
         if(interact && !_hasInteracted) 
         {
-            OnInteract();
             _hasInteracted = true;
+            OnInteract();
         }else if(!interact) 
         {
             _hasInteracted = false;
@@ -41,13 +41,16 @@ public class InteractableHandler : MonoBehaviour
 
     public void OnVRInteract(Interactable interactable)
     {
+        if (!_vrEnabled) return;
         if (interactable.Holdable) return;
-        
+
+        _hasInteracted = true;
         interactable.OnInteract(this);
     }
     
-    public void OnInteract()
+    private void OnInteract()
     {
+        if (_hasInteracted) return;
         if (_heldInteractable)
         {
             _heldInteractable.OnInteract(this);

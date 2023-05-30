@@ -121,6 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6e849f9f7814101ae1815d72f4d5e0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _interactableHandler: {fileID: 0}
 --- !u!1 &7603981093895354442 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8050983575573860060, guid: fa5d77d7e2c4d6a4d8ff07dac3a46b3c,
@@ -151,6 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6e849f9f7814101ae1815d72f4d5e0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _interactableHandler: {fileID: 0}
 --- !u!1001 &449254282569610448
 PrefabInstance:
   m_ObjectHideFlags: 0

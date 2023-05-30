@@ -18,16 +18,16 @@ public class TutorialHouse : MonoBehaviour
     void Update()
     {
         if(airconUI)
-            airconUI.text = house.AirconTemp + "°C";
+            airconUI.text = "Aircon Temp: " + house.AirconTemp + "°C";
         
         if(binUI)
-            binUI.text = house.RubbishCollected + "/" + house.TotalRubbish;
+            binUI.text = "Rubbish Collected " +  house.RubbishCollected + "/" + house.TotalRubbish;
         
         if(plantUI)
-            plantUI.text = house.PlantsGrown + "/" + house.TotalPlants;
+            plantUI.text = "Plants Grown: " + house.PlantsGrown + "/" + house.TotalPlants;
         
         if(lightUI)
-            lightUI.text = house.LightsOff + "/" + house.TotalSwitches;
+            lightUI.text = "Lights Turned Off: " + house.LightsOff + "/" + house.TotalSwitches;
         
     }
 
