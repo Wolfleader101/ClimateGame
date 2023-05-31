@@ -18,7 +18,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float mouseSens = 1.0f;
     [SerializeField] private float gravityScale = -9.81f;
 
-
     private float _xRotation = 0f;
     private float _yRotation = 0f;
 

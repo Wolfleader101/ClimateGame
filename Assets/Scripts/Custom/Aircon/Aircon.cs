@@ -11,9 +11,10 @@ public class Aircon : MonoBehaviour
     [SerializeField] private TextMeshProUGUI text;
 
     [SerializeField] private int _value;
+    
+    [SerializeField] private Outline _outline;
 
     public int Temp => _value;
-    
     public event Action<int> OnAirconValueChange;
     
     private int _oldValue;
@@ -22,6 +23,7 @@ public class Aircon : MonoBehaviour
     private static readonly string _appendix = "°C";
 
     private bool _targetHit = false;
+    public bool TargetHit => _targetHit;
     
     // Start is called before the first frame update
     void Start()
@@ -29,6 +31,7 @@ public class Aircon : MonoBehaviour
         text.color = Color.red;
         _oldValue = _value;
         text.text = Convert.ToString(_value) + " " + _appendix;
+        _outline = gameObject.GetComponent<Outline>();
     }
 
     // Update is called once per frame
@@ -49,9 +52,13 @@ public class Aircon : MonoBehaviour
 
     public void ChangeValue(int x)
     {
-        if (_targetHit) return;
+        if (_targetHit)
+        {
+            if(_outline != null) _outline.enabled = false;
+            return;
+        }
         _value += x;
-        OnAirconValueChange(_value);
+        if (OnAirconValueChange != null) OnAirconValueChange(_value);
     }
     
 }

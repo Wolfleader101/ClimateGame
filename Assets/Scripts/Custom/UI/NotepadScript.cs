@@ -9,18 +9,17 @@ public class NotepadScript : MonoBehaviour
     private AudioSource source;
     private AudioClip clip;
 
-    [SerializeField] private TMP_Text task_1_t;
-    [SerializeField] private TMP_Text task_2_t;
+    [SerializeField] private TextMeshProUGUI lightUI;
+    [SerializeField] private TextMeshProUGUI plantUI;
+    [SerializeField] private TextMeshProUGUI airconUI;
+    [SerializeField] private TextMeshProUGUI binUI;
 
+    public House ActiveHouse { get; set; }
+    
     private void Awake()
     {
         animator = GetComponent<Animator>();
         source = GetComponent<AudioSource>();
-    }
-
-    private void Start()
-    {
-
     }
 
     private void Update()
@@ -29,12 +28,35 @@ public class NotepadScript : MonoBehaviour
             animator.SetBool("opened", opened = true);
         else if (Input.GetKeyUp(KeyCode.Tab))
             animator.SetBool("opened", opened = false);
-
-        if (Input.GetKeyDown(KeyCode.T) && opened)
+        
+        if (ActiveHouse == null)
         {
-            task_1_t.text = "<s>EXAMPLE TASK 1:</s>";
-            OnStrikethrough();
+            if (airconUI)
+                airconUI.text = "Not in a House";
+
+            if (binUI)
+                binUI.text = "";
+
+            if (plantUI)
+                plantUI.text = "";
+
+            if (lightUI)
+                lightUI.text = "";
+            return;
         }
+
+        if(airconUI)
+            airconUI.text = "Aircon Temp: " + ActiveHouse.AirconTemp + "°C";
+        
+        if(binUI)
+            binUI.text = "Rubbish Collected " +  ActiveHouse.RubbishCollected + "/" + ActiveHouse.TotalRubbish;
+        
+        if(plantUI)
+            plantUI.text = "Plants Grown: " + ActiveHouse.PlantsGrown + "/" + ActiveHouse.TotalPlants;
+        
+        if(lightUI)
+            lightUI.text = "Lights Turned Off: " + ActiveHouse.LightsOff + "/" + ActiveHouse.TotalSwitches;
+
     }
 
     private void OnStrikethrough()

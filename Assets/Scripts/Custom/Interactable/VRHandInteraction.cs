@@ -2,10 +2,11 @@
 
 public class VRHandInteraction : MonoBehaviour
 {
+    [SerializeField] private InteractableHandler _interactableHandler;
     private void OnCollisionEnter(Collision collision)
     {
         if (!collision.gameObject.GetComponent<Interactable>()) return;
 
-        transform.parent.GetComponent<InteractableHandler>().OnVRInteract(collision.gameObject.GetComponent<Interactable>());
+        _interactableHandler.OnVRInteract(collision.gameObject.GetComponent<Interactable>());
     }
 }

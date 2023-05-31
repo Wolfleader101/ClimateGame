@@ -44,9 +44,7 @@ public class RecyclableRubbish : MonoBehaviour
     
     private void Update()
     {
-       var dragPosition = _camera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, grabDistance));
-
-       _currentPos = _held ? dragPosition : Vector3.zero;
+       _currentPos = _held ? _camera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, grabDistance)) : Vector3.zero;
     }
     
     private void FixedUpdate()
